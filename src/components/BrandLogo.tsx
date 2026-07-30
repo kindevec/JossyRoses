@@ -35,45 +35,11 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
   // Rose Mandala/Bloom Geometric SVG Logo matching Jossy Roses official identity
   const RoseEmblem = (
-    <svg
-      viewBox="0 0 100 100"
-      className={`${iconSizes[size]} transition-transform duration-300 group-hover:scale-105 shrink-0`}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* Central Core */}
-      <circle cx="50" cy="50" r="5" fill="#E3004F" />
-
-      {/* 8 Main Petals in Radial symmetry */}
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, index) => (
-        <g key={index} transform={`rotate(${angle} 50 50)`}>
-          {/* Main Leaf/Petal teardrop shape */}
-          <path
-            d="M 50 50 C 42 35 38 20 50 10 C 62 20 58 35 50 50 Z"
-            fill="#E3004F"
-          />
-          {/* Inner Petal highlight curve */}
-          <path
-            d="M 50 42 C 46 32 44 24 50 18 C 56 24 54 32 50 42 Z"
-            fill="#FF2A75"
-            opacity="0.85"
-          />
-          {/* Small outer dew accent dot */}
-          <circle cx="50" cy="5" r="2.5" fill="#E3004F" />
-        </g>
-      ))}
-
-      {/* Outer subtle ring glow */}
-      <circle
-        cx="50"
-        cy="50"
-        r="44"
-        stroke="#E3004F"
-        strokeWidth="0.5"
-        strokeDasharray="2 2"
-        opacity="0.4"
-      />
-    </svg>
+    <img
+      src="/logo.png"
+      alt="Jossy Roses"
+      className={`${iconSizes[size]} transition-transform duration-300 group-hover:scale-105 shrink-0 object-contain`}
+    />
   );
 
   if (variant === 'icon-only') {
@@ -89,10 +55,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <div className={`flex flex-col items-center text-center group cursor-pointer ${className}`}>
         {RoseEmblem}
         <div className="mt-3">
-          <span className={`font-display font-bold tracking-tight text-white block ${textSizes[size]}`}>
+          <span className={`font-display font-bold tracking-tight text-slate-900 block ${textSizes[size]}`}>
             Jossy<span className="text-[#E3004F]">Roses</span>
           </span>
-          <span className={`block font-serif tracking-[0.25em] text-[#F1F5F9] font-medium uppercase mt-1 ${taglineSizes[size]}`}>
+          <span className={`block font-serif tracking-[0.25em] text-slate-700 font-medium uppercase mt-1 ${taglineSizes[size]}`}>
             W H E R E &nbsp; Q U A L I T Y &nbsp; C O U N T S
           </span>
         </div>
@@ -104,10 +70,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     <div className={`inline-flex items-center gap-3 group cursor-pointer ${className}`}>
       {RoseEmblem}
       <div className="flex flex-col">
-        <span className={`font-display font-bold tracking-tight leading-none text-white ${textSizes[size]}`}>
+        <span className={`font-display font-bold tracking-tight leading-none text-slate-900 ${textSizes[size]}`}>
           Jossy<span className="text-[#E3004F]">Roses</span>
         </span>
-        <span className={`font-serif tracking-[0.22em] text-[#E2E8F0] font-semibold uppercase mt-1 leading-none ${taglineSizes[size]}`}>
+        <span className={`font-serif tracking-[0.22em] text-slate-700 font-semibold uppercase mt-1 leading-none ${taglineSizes[size]}`}>
           WHERE QUALITY COUNTS
         </span>
       </div>
