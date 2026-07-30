@@ -1,0 +1,6 @@
+{
+  "name": "Jossy Roses - Exportadora de Rosas de Ecuador",
+  "description": "Exportadora Ecuatoriana de Rosas de Calidad Superior - Where Quality Counts. Envíos internacionales directos desde Cayambe, Ecuador.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
