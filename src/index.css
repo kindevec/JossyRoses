@@ -9,8 +9,8 @@
   
   body {
     font-family: var(--font-sans);
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #000000;
+    color: #F8FAFC;
   }
 
   h1, h2, h3, .font-display {
@@ -27,10 +27,10 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #0b0f17;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #2a1525;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -52,31 +52,30 @@
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(227, 0, 79, 0.15);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
 }
 
 .glass-card-hover {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-card-hover:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(26, 20, 35, 0.8);
   border-color: rgba(227, 0, 79, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(227, 0, 79, 0.15);
+  box-shadow: 0 10px 30px -10px rgba(227, 0, 79, 0.25);
   transform: translateY(-4px);
 }
 
 .text-gradient-rose {
-  background: linear-gradient(135deg, #1E293B 0%, #E3004F 50%, #9F0038 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFB5D0 40%, #E3004F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%);
+  background: linear-gradient(135deg, #FFF 0%, #FDE68A 50%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
