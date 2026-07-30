@@ -42,7 +42,7 @@ export const QualityProcess: React.FC<QualityProcessProps> = ({ currentLang }) =
   ];
 
   return (
-    <section id="calidad" className="py-16 sm:py-24 bg-[#000000] relative">
+    <section id="calidad" className="py-16 sm:py-24 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Quality Process Section Header */}
@@ -50,11 +50,11 @@ export const QualityProcess: React.FC<QualityProcessProps> = ({ currentLang }) =
           <span className="text-[#E3004F] font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase block mb-2">
             {currentLang === 'es' ? 'Garantía Ecuatoriana de Excelencia' : 'Ecuadorian Quality Assurance'}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-zinc-900 tracking-tight">
             {currentLang === 'es' ? 'Proceso de Calidad y Cadena de Frío' : 'Quality & Cold Chain Process'}
           </h2>
           <div className="w-16 h-1 bg-[#E3004F] mx-auto my-4 rounded-full" />
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             {currentLang === 'es'
               ? 'Control de calidad en 5 etapas que garantiza flores impecables desde nuestra finca hasta el florero de su cliente.'
               : '5-stage quality management ensuring flawless flowers from our farm to your client’s vase.'}
@@ -72,7 +72,7 @@ export const QualityProcess: React.FC<QualityProcessProps> = ({ currentLang }) =
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-card p-5 rounded-2xl border border-slate-800 hover:border-rose-500/40 transition relative group"
+                className="glass-card p-5 rounded-2xl border border-slate-200 hover:border-rose-500/40 transition relative group"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-2xl font-display font-bold text-[#E3004F] font-mono">
@@ -82,10 +82,10 @@ export const QualityProcess: React.FC<QualityProcessProps> = ({ currentLang }) =
                     <IconComponent className="w-4 h-4" />
                   </div>
                 </div>
-                <h3 className="text-base font-bold text-white mb-2 group-hover:text-rose-300 transition-colors">
+                <h3 className="text-base font-bold text-zinc-900 mb-2 group-hover:text-rose-300 transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {step.desc}
                 </p>
               </motion.div>
@@ -96,20 +96,20 @@ export const QualityProcess: React.FC<QualityProcessProps> = ({ currentLang }) =
         {/* Quality Seals / Certifications */}
         <div className="glass-card p-8 rounded-3xl border border-rose-500/20 mb-20 bg-gradient-to-r from-slate-950 via-rose-950/20 to-slate-950">
           <div className="text-center mb-8">
-            <h3 className="text-xl font-display font-bold text-white">
+            <h3 className="text-xl font-display font-bold text-zinc-900">
               {currentLang === 'es' ? 'Sellos de Calidad y Certificaciones' : 'Certifications & Quality Seals'}
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-600 mt-1">
               Garantizando floricultura ética, ambiental y de alto rendimiento comercial
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {CERTIFICATIONS.map((cert, i) => (
-              <div key={i} className="bg-black/50 p-5 rounded-2xl border border-slate-800 text-center space-y-2">
+              <div key={i} className="bg-white/50 p-5 rounded-2xl border border-slate-200 text-center space-y-2">
                 <ShieldCheck className="w-8 h-8 text-[#E3004F] mx-auto" />
-                <h4 className="font-bold text-white text-sm">{cert.title}</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{cert.description}</p>
+                <h4 className="font-bold text-zinc-900 text-sm">{cert.title}</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">{cert.description}</p>
               </div>
             ))}
           </div>
@@ -121,7 +121,7 @@ export const QualityProcess: React.FC<QualityProcessProps> = ({ currentLang }) =
             <span className="text-xs font-bold text-[#E3004F] uppercase tracking-widest block mb-1">
               {currentLang === 'es' ? 'Confianza Internacional' : 'International Trust'}
             </span>
-            <h3 className="text-2xl sm:text-4xl font-display font-bold text-white">
+            <h3 className="text-2xl sm:text-4xl font-display font-bold text-zinc-900">
               {currentLang === 'es' ? 'Lo que Dicen Nuestros Importadores' : 'What Our Importers Say'}
             </h3>
           </div>
@@ -133,7 +133,7 @@ export const QualityProcess: React.FC<QualityProcessProps> = ({ currentLang }) =
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-rose-500/30 transition relative flex flex-col justify-between"
+                className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 hover:border-rose-500/30 transition relative flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -147,18 +147,18 @@ export const QualityProcess: React.FC<QualityProcessProps> = ({ currentLang }) =
                     </span>
                   </div>
 
-                  <p className="text-sm text-slate-200 italic font-serif leading-relaxed mb-6">
+                  <p className="text-sm text-slate-800 italic font-serif leading-relaxed mb-6">
                     "{t.quote}"
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 pt-4 border-t border-slate-800">
-                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-lg">
+                <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
+                  <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-lg">
                     {t.flag}
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-sm leading-none">{t.clientName}</h4>
-                    <span className="text-xs text-slate-400">{t.companyName} — {t.city}, {t.country}</span>
+                    <h4 className="font-bold text-zinc-900 text-sm leading-none">{t.clientName}</h4>
+                    <span className="text-xs text-slate-600">{t.companyName} — {t.city}, {t.country}</span>
                   </div>
                 </div>
               </motion.div>

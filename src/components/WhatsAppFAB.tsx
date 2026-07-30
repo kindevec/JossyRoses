@@ -16,13 +16,13 @@ export const WhatsAppFAB: React.FC<WhatsAppFABProps> = ({ currentLang }) => {
       {/* Quick Chat Popup Widget */}
       {isOpen && (
         <div className="mb-3 bg-[#121212] border border-rose-500/30 rounded-2xl p-4 shadow-2xl max-w-xs w-72 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-5">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-[#25D366]/20 flex items-center justify-center text-[#25D366]">
                 <WhatsAppIcon className="w-5 h-5 fill-current" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white">Jossy Roses Ventas</h4>
+                <h4 className="text-xs font-bold text-zinc-900">Jossy Roses Ventas</h4>
                 <span className="flex items-center gap-1 text-[10px] text-emerald-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                   <span>En línea ahora</span>
@@ -31,13 +31,13 @@ export const WhatsAppFAB: React.FC<WhatsAppFABProps> = ({ currentLang }) => {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-slate-400 hover:text-white p-1"
+              className="text-slate-600 hover:text-zinc-900 p-1"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <p className="text-xs text-slate-300 leading-relaxed mb-4">
+          <p className="text-xs text-slate-700 leading-relaxed mb-4">
             ¡Hola! 👋 Gracias por visitar Jossy Roses. ¿Deseas consultar catálogo, precios de exportación o disponibilidad de tallos?
           </p>
 

@@ -19,7 +19,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#000000] text-slate-100 font-sans selection:bg-[#E3004F] selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#E3004F] selection:text-zinc-900 relative overflow-x-hidden">
       
       {/* Top Header */}
       <Header

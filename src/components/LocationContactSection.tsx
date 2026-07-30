@@ -51,11 +51,11 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
           <span className="text-[#E3004F] font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase block mb-2">
             {currentLang === 'es' ? 'Contacto Directo con la Finca' : 'Direct Farm Contact'}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-zinc-900 tracking-tight">
             {currentLang === 'es' ? 'Ubicación y Atención Comercial' : 'Location & Sales Office'}
           </h2>
           <div className="w-16 h-1 bg-[#E3004F] mx-auto my-4 rounded-full" />
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             {currentLang === 'es'
               ? 'Atención personalizada para importadores y distribuidores florales las 24 horas del día.'
               : '24/7 dedicated service for international floral importers and wholesalers.'}
@@ -77,11 +77,11 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
                   <span className="text-xs font-bold text-[#25D366] uppercase tracking-wider block">
                     {currentLang === 'es' ? 'Canal Oficial Principal' : 'Primary Official Channel'}
                   </span>
-                  <h3 className="text-lg font-bold text-white">WhatsApp Empresarial</h3>
+                  <h3 className="text-lg font-bold text-zinc-900">WhatsApp Empresarial</h3>
                 </div>
               </div>
 
-              <p className="text-xs text-slate-300 leading-relaxed mb-4">
+              <p className="text-xs text-slate-700 leading-relaxed mb-4">
                 Chat directo con la gerencia de ventas para disponibilidad inmediata de tallos y cotizaciones en tiempo real.
               </p>
 
@@ -98,7 +98,7 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
 
                 <button
                   onClick={onOpenQR}
-                  className="bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 p-3 rounded-xl transition text-xs font-semibold flex items-center gap-1.5"
+                  className="bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-700 p-3 rounded-xl transition text-xs font-semibold flex items-center gap-1.5"
                   title="Escanear Código QR"
                 >
                   <QrCode className="w-4 h-4 text-rose-400" />
@@ -108,48 +108,48 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
             </div>
 
             {/* Direct Phone & Emails Card */}
-            <div className="glass-card p-6 rounded-3xl border border-slate-800 space-y-4">
+            <div className="glass-card p-6 rounded-3xl border border-slate-200 space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-[#E3004F] shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div className="flex-1">
-                  <span className="text-[11px] text-slate-400 font-semibold block">Teléfono / WhatsApp Directo:</span>
+                  <span className="text-[11px] text-slate-600 font-semibold block">Teléfono / WhatsApp Directo:</span>
                   <a
                     href={`tel:${COMPANY_INFO.phoneClean}`}
-                    className="text-white font-bold text-base hover:text-[#E3004F] transition"
+                    className="text-zinc-900 font-bold text-base hover:text-[#E3004F] transition"
                   >
                     {COMPANY_INFO.phone}
                   </a>
                 </div>
               </div>
 
-              <div className="border-t border-slate-800/80 pt-3 flex items-start gap-3">
+              <div className="border-t border-slate-200/80 pt-3 flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-[#E3004F] shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="flex-1 space-y-1">
-                  <span className="text-[11px] text-slate-400 font-semibold block">Correos Electrónicos de Ventas:</span>
-                  <div className="flex items-center justify-between text-xs text-white font-medium bg-black/40 p-2 rounded-lg border border-slate-800">
+                  <span className="text-[11px] text-slate-600 font-semibold block">Correos Electrónicos de Ventas:</span>
+                  <div className="flex items-center justify-between text-xs text-zinc-900 font-medium bg-white/40 p-2 rounded-lg border border-slate-200">
                     <a href={`mailto:${COMPANY_INFO.salesEmail1}`} className="hover:text-rose-400 transition truncate">
                       {COMPANY_INFO.salesEmail1}
                     </a>
                     <button
                       onClick={() => handleCopy(COMPANY_INFO.salesEmail1)}
-                      className="text-slate-400 hover:text-white p-1"
+                      className="text-slate-600 hover:text-zinc-900 p-1"
                       title="Copiar correo"
                     >
                       <Copy className="w-3.5 h-3.5" />
                     </button>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs text-white font-medium bg-black/40 p-2 rounded-lg border border-slate-800">
+                  <div className="flex items-center justify-between text-xs text-zinc-900 font-medium bg-white/40 p-2 rounded-lg border border-slate-200">
                     <a href={`mailto:${COMPANY_INFO.salesEmail2}`} className="hover:text-rose-400 transition truncate">
                       {COMPANY_INFO.salesEmail2}
                     </a>
                     <button
                       onClick={() => handleCopy(COMPANY_INFO.salesEmail2)}
-                      className="text-slate-400 hover:text-white p-1"
+                      className="text-slate-600 hover:text-zinc-900 p-1"
                       title="Copiar correo"
                     >
                       <Copy className="w-3.5 h-3.5" />
@@ -164,21 +164,21 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
                 </div>
               </div>
 
-              <div className="border-t border-slate-800/80 pt-3 flex items-start gap-3">
+              <div className="border-t border-slate-200/80 pt-3 flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-[#E3004F] shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-400 font-semibold block">Dirección de la Plantación:</span>
-                  <p className="text-white text-sm font-bold">{COMPANY_INFO.locationName}</p>
+                  <span className="text-[11px] text-slate-600 font-semibold block">Dirección de la Plantación:</span>
+                  <p className="text-zinc-900 text-sm font-bold">{COMPANY_INFO.locationName}</p>
                   <p className="text-xs text-rose-300 font-mono mt-0.5">Código Plus: {COMPANY_INFO.locationCode}</p>
                 </div>
               </div>
             </div>
 
             {/* Official Social Media Links */}
-            <div className="glass-card p-5 rounded-2xl border border-slate-800 flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-300">Redes Oficiales Jossy Roses:</span>
+            <div className="glass-card p-5 rounded-2xl border border-slate-200 flex items-center justify-between">
+              <span className="text-xs font-bold text-slate-700">Redes Oficiales Jossy Roses:</span>
               <div className="flex items-center space-x-4">
                 <a
                   href={COMPANY_INFO.whatsappMasterUrl}
@@ -193,7 +193,7 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
                   href="https://facebook.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 rounded-full bg-[#1877F2]/20 hover:bg-[#1877F2] text-[#1877F2] hover:text-white flex items-center justify-center transition"
+                  className="w-9 h-9 rounded-full bg-[#1877F2]/20 hover:bg-[#1877F2] text-[#1877F2] hover:text-zinc-900 flex items-center justify-center transition"
                   title="Facebook Official"
                 >
                   <FacebookIcon className="w-5 h-5 fill-current" />
@@ -202,7 +202,7 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
                   href="https://instagram.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 rounded-full bg-[#E4405F]/20 hover:bg-[#E4405F] text-[#E4405F] hover:text-white flex items-center justify-center transition"
+                  className="w-9 h-9 rounded-full bg-[#E4405F]/20 hover:bg-[#E4405F] text-[#E4405F] hover:text-zinc-900 flex items-center justify-center transition"
                   title="Instagram Official"
                 >
                   <InstagramIcon className="w-5 h-5 fill-current" />
@@ -216,7 +216,7 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
           <div className="lg:col-span-7 space-y-6">
             
             {/* Interactive Embedded Google Map View for Cayambe */}
-            <div className="glass-card rounded-3xl overflow-hidden border border-slate-800 relative h-80 shadow-2xl">
+            <div className="glass-card rounded-3xl overflow-hidden border border-slate-200 relative h-80 shadow-2xl">
               <iframe
                 title="Jossy Roses Cayambe Ecuador Location Map"
                 src="https://maps.google.com/maps?q=Cayambe%2C%20Ecuador&t=&z=12&ie=UTF8&iwloc=&output=embed"
@@ -228,7 +228,7 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
                   href={COMPANY_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-black/90 backdrop-blur-md text-white text-xs font-bold px-3.5 py-2 rounded-xl border border-rose-500/30 hover:bg-[#E3004F] transition"
+                  className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md text-zinc-900 text-xs font-bold px-3.5 py-2 rounded-xl border border-rose-500/30 hover:bg-[#E3004F] transition"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>Abrir en Google Maps (2VG2+7QP)</span>
@@ -237,79 +237,79 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
             </div>
 
             {/* Contact Inquiry Form */}
-            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800">
-              <h3 className="text-xl font-display font-bold text-white mb-2">
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200">
+              <h3 className="text-xl font-display font-bold text-zinc-900 mb-2">
                 Enviar Solicitud Directa
               </h3>
-              <p className="text-xs text-slate-400 mb-6">
+              <p className="text-xs text-slate-600 mb-6">
                 Llene este formulario y nos comunicaremos de inmediato a través de WhatsApp o Correo Electrónico.
               </p>
 
               <form onSubmit={handleFormSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[11px] font-bold text-slate-300 block mb-1">Nombre Completo:*</label>
+                    <label className="text-[11px] font-bold text-slate-700 block mb-1">Nombre Completo:*</label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Ej. Carlos Mendoza"
-                      className="w-full bg-slate-900 border border-slate-800 focus:border-[#E3004F] text-slate-200 text-xs rounded-xl p-3 outline-none"
+                      className="w-full bg-slate-100 border border-slate-200 focus:border-[#E3004F] text-slate-800 text-xs rounded-xl p-3 outline-none"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] font-bold text-slate-300 block mb-1">Empresa / Importadora:</label>
+                    <label className="text-[11px] font-bold text-slate-700 block mb-1">Empresa / Importadora:</label>
                     <input
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Ej. Global Flowers LLC"
-                      className="w-full bg-slate-900 border border-slate-800 focus:border-[#E3004F] text-slate-200 text-xs rounded-xl p-3 outline-none"
+                      className="w-full bg-slate-100 border border-slate-200 focus:border-[#E3004F] text-slate-800 text-xs rounded-xl p-3 outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[11px] font-bold text-slate-300 block mb-1">Correo Electrónico:*</label>
+                    <label className="text-[11px] font-bold text-slate-700 block mb-1">Correo Electrónico:*</label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="ventas@empresa.com"
-                      className="w-full bg-slate-900 border border-slate-800 focus:border-[#E3004F] text-slate-200 text-xs rounded-xl p-3 outline-none"
+                      className="w-full bg-slate-100 border border-slate-200 focus:border-[#E3004F] text-slate-800 text-xs rounded-xl p-3 outline-none"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] font-bold text-slate-300 block mb-1">País de Destino:*</label>
+                    <label className="text-[11px] font-bold text-slate-700 block mb-1">País de Destino:*</label>
                     <input
                       type="text"
                       required
                       value={formData.country}
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                       placeholder="Ej. Estados Unidos / España / Rusia"
-                      className="w-full bg-slate-900 border border-slate-800 focus:border-[#E3004F] text-slate-200 text-xs rounded-xl p-3 outline-none"
+                      className="w-full bg-slate-100 border border-slate-200 focus:border-[#E3004F] text-slate-800 text-xs rounded-xl p-3 outline-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-slate-300 block mb-1">Mensaje / Requerimiento de Rosas:*</label>
+                  <label className="text-[11px] font-bold text-slate-700 block mb-1">Mensaje / Requerimiento de Rosas:*</label>
                   <textarea
                     rows={3}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Indique las variedades de preferencia, largo de tallos (cm) y fecha estimada de entrega."
-                    className="w-full bg-slate-900 border border-slate-800 focus:border-[#E3004F] text-slate-200 text-xs rounded-xl p-3 outline-none"
+                    className="w-full bg-slate-100 border border-slate-200 focus:border-[#E3004F] text-slate-800 text-xs rounded-xl p-3 outline-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#E3004F] hover:bg-[#ff1a66] text-white font-bold text-sm py-3.5 px-6 rounded-xl shadow-[0_0_20px_rgba(227,0,79,0.5)] transition"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#E3004F] hover:bg-[#ff1a66] text-zinc-900 font-bold text-sm py-3.5 px-6 rounded-xl shadow-[0_0_20px_rgba(227,0,79,0.5)] transition"
                 >
                   <Send className="w-4 h-4" />
                   <span>Enviar Consulta a WhatsApp de Ventas</span>
@@ -326,7 +326,7 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
       {/* WhatsApp Official QR Code Modal matching user's uploaded screenshot */}
       <AnimatePresence>
         {isQRModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/85 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -335,7 +335,7 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
             >
               <button
                 onClick={onCloseQR}
-                className="absolute top-4 right-4 text-slate-400 hover:text-white p-1"
+                className="absolute top-4 right-4 text-slate-600 hover:text-zinc-900 p-1"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -344,7 +344,7 @@ export const LocationContactSection: React.FC<LocationContactProps> = ({
                 <span className="text-xs font-bold text-rose-400 uppercase tracking-widest block mb-1">
                   WhatsApp Oficial Jossy Roses
                 </span>
-                <h3 className="text-xl font-display font-bold text-white">
+                <h3 className="text-xl font-display font-bold text-zinc-900">
                   Código QR de Empresa
                 </h3>
               </div>

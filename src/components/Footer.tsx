@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenQR }) => {
   };
 
   return (
-    <footer className="bg-[#000000] border-t border-rose-500/20 text-slate-400 text-xs pt-16 pb-24 md:pb-12 relative overflow-hidden">
+    <footer className="bg-slate-50 border-t border-rose-500/20 text-slate-600 text-xs pt-16 pb-24 md:pb-12 relative overflow-hidden">
       
       {/* Decorative Subtle Background Line */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenQR }) => {
           <div className="lg:col-span-5 space-y-4">
             <BrandLogo size="lg" variant="full" />
             
-            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-md mt-4">
+            <p className="text-slate-700 text-xs sm:text-sm leading-relaxed max-w-md mt-4">
               Exportadora ecuatoriana líder en cultivo y distribución internacional de rosas de altitud desde Cayambe, Ecuador. "Where Quality Counts".
             </p>
 
@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenQR }) => {
                 href={COMPANY_INFO.whatsappMasterUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 hover:border-[#25D366] text-slate-300 hover:text-[#25D366] flex items-center justify-center transition"
+                className="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 hover:border-[#25D366] text-slate-700 hover:text-[#25D366] flex items-center justify-center transition"
                 title="WhatsApp Oficial"
               >
                 <WhatsAppIcon className="w-4 h-4 fill-current" />
@@ -45,7 +45,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenQR }) => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 hover:border-[#1877F2] text-slate-300 hover:text-[#1877F2] flex items-center justify-center transition"
+                className="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 hover:border-[#1877F2] text-slate-700 hover:text-[#1877F2] flex items-center justify-center transition"
                 title="Facebook Oficial"
               >
                 <FacebookIcon className="w-4 h-4 fill-current" />
@@ -54,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenQR }) => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 hover:border-[#E4405F] text-slate-300 hover:text-[#E4405F] flex items-center justify-center transition"
+                className="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 hover:border-[#E4405F] text-slate-700 hover:text-[#E4405F] flex items-center justify-center transition"
                 title="Instagram Oficial"
               >
                 <InstagramIcon className="w-4 h-4 fill-current" />
@@ -64,10 +64,10 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenQR }) => {
 
           {/* Navigation Links Column */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-display font-bold text-white text-sm uppercase tracking-wider text-rose-400">
+            <h4 className="font-display font-bold text-zinc-900 text-sm uppercase tracking-wider text-rose-400">
               {currentLang === 'es' ? 'Navegación Rápida' : 'Quick Navigation'}
             </h4>
-            <ul className="space-y-2 text-slate-300">
+            <ul className="space-y-2 text-slate-700">
               <li>
                 <a href="#hero" className="hover:text-[#E3004F] transition">
                   {currentLang === 'es' ? 'Inicio & Historia' : 'Home'}
@@ -103,10 +103,10 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenQR }) => {
 
           {/* Contact & Location Info Column */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="font-display font-bold text-white text-sm uppercase tracking-wider text-rose-400">
+            <h4 className="font-display font-bold text-zinc-900 text-sm uppercase tracking-wider text-rose-400">
               {currentLang === 'es' ? 'Oficina y Ventas' : 'Sales & Location'}
             </h4>
-            <div className="space-y-2 text-slate-300">
+            <div className="space-y-2 text-slate-700">
               <p className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-[#E3004F] shrink-0" />
                 <span>{COMPANY_INFO.locationName} (Plus Code: 2VG2+7QP)</span>
@@ -138,13 +138,13 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenQR }) => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           
           {/* Mandatory text explicitly requested in prompt */}
-          <p className="text-slate-400 font-medium text-xs sm:text-sm">
+          <p className="text-slate-600 font-medium text-xs sm:text-sm">
             © 2026 Todos los derechos reservados. Desarrollado por Kindev
           </p>
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-xs text-rose-300 hover:text-white bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full transition"
+            className="inline-flex items-center gap-1.5 text-xs text-rose-300 hover:text-zinc-900 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-full transition"
           >
             <span>Volver arriba</span>
             <ArrowUp className="w-3.5 h-3.5" />

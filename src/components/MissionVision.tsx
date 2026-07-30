@@ -30,12 +30,12 @@ export const MissionVision: React.FC<MissionVisionProps> = ({ currentLang }) => 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight"
+            className="text-3xl sm:text-5xl font-display font-bold text-zinc-900 tracking-tight"
           >
             {currentLang === 'es' ? 'Quiénes Somos' : 'About Jossy Roses'}
           </motion.h2>
           <div className="w-16 h-1 bg-[#E3004F] mx-auto my-4 rounded-full" />
-          <p className="text-slate-400 text-sm sm:text-lg">
+          <p className="text-slate-600 text-sm sm:text-lg">
             {currentLang === 'es'
               ? 'Conectamos la fertilidad única de los Andes ecuatorianos con la floristería de alto nivel internacional.'
               : 'Connecting the unique fertility of the Ecuadorian Andes with high-end international floristry.'}
@@ -60,15 +60,15 @@ export const MissionVision: React.FC<MissionVisionProps> = ({ currentLang }) => 
             <span className="text-[11px] sm:text-xs font-bold text-[#E3004F] uppercase tracking-widest block mb-2">
               {currentLang === 'es' ? 'Propósito Institucional' : 'Institutional Purpose'}
             </span>
-            <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3 sm:mb-4">
+            <h3 className="text-2xl sm:text-3xl font-display font-bold text-zinc-900 mb-3 sm:mb-4">
               Misión
             </h3>
 
-            <blockquote className="text-base sm:text-xl lg:text-2xl font-serif italic text-slate-100 leading-relaxed pl-3 sm:pl-4 border-l-2 border-[#E3004F] my-3 sm:my-4">
+            <blockquote className="text-base sm:text-xl lg:text-2xl font-serif italic text-slate-900 leading-relaxed pl-3 sm:pl-4 border-l-2 border-[#E3004F] my-3 sm:my-4">
               "{COMPANY_INFO.misionText}"
             </blockquote>
 
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mt-4">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-4">
               {currentLang === 'es'
                 ? 'Nos enfocamos rigurosamente en cada detalle del proceso: desde la selección genética de las plantas hasta el empaque de lujo personalizado.'
                 : 'We rigorously focus on every detail: from plant genetics selection to luxury customized box packaging.'}
@@ -90,15 +90,15 @@ export const MissionVision: React.FC<MissionVisionProps> = ({ currentLang }) => 
             <span className="text-[11px] sm:text-xs font-bold text-[#E3004F] uppercase tracking-widest block mb-2">
               {currentLang === 'es' ? 'Proyección Futura' : 'Future Vision'}
             </span>
-            <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3 sm:mb-4">
+            <h3 className="text-2xl sm:text-3xl font-display font-bold text-zinc-900 mb-3 sm:mb-4">
               Visión
             </h3>
 
-            <blockquote className="text-base sm:text-xl lg:text-2xl font-serif italic text-slate-100 leading-relaxed pl-3 sm:pl-4 border-l-2 border-[#E3004F] my-3 sm:my-4">
+            <blockquote className="text-base sm:text-xl lg:text-2xl font-serif italic text-slate-900 leading-relaxed pl-3 sm:pl-4 border-l-2 border-[#E3004F] my-3 sm:my-4">
               "{COMPANY_INFO.visionText}"
             </blockquote>
 
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mt-4">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-4">
               {currentLang === 'es'
                 ? 'Promovemos empleos dignos en la zona de Cayambe, aplicando prácticas agrícolas con huella hídrica sostenible y energía renovable.'
                 : 'We promote dignified jobs in Cayambe, applying sustainable water management and eco-friendly farming.'}
@@ -108,14 +108,14 @@ export const MissionVision: React.FC<MissionVisionProps> = ({ currentLang }) => 
         </div>
 
         {/* Why Cayambe Ecuadorian Roses Are World-Famous */}
-        <div className="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-800">
+        <div className="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h3 className="text-2xl sm:text-3xl font-display font-bold text-white">
+            <h3 className="text-2xl sm:text-3xl font-display font-bold text-zinc-900">
               {currentLang === 'es'
                 ? 'El Secreto Natural de Cayambe, Ecuador'
                 : 'The Natural Advantage of Cayambe, Ecuador'}
             </h3>
-            <p className="text-slate-400 text-sm mt-2">
+            <p className="text-slate-600 text-sm mt-2">
               {currentLang === 'es'
                 ? 'Ubicados exactamente en la Línea Ecuatorial a 2,800 metros de altitud.'
                 : 'Located right on the Equator line at 2,800 meters elevation.'}
@@ -123,34 +123,34 @@ export const MissionVision: React.FC<MissionVisionProps> = ({ currentLang }) => 
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 rounded-2xl bg-black/40 border border-slate-800 hover:border-rose-500/30 transition">
+            <div className="p-5 rounded-2xl bg-white/40 border border-slate-200 hover:border-rose-500/30 transition">
               <Sun className="w-8 h-8 text-[#E3004F] mb-3" />
-              <h4 className="font-bold text-white text-base mb-1">12 Horas Luz Perpendicular</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <h4 className="font-bold text-zinc-900 text-base mb-1">12 Horas Luz Perpendicular</h4>
+              <p className="text-slate-600 text-xs leading-relaxed">
                 Radiación solar constante durante todo el año para colores intensos y sin variaciones cromáticas.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-black/40 border border-slate-800 hover:border-rose-500/30 transition">
+            <div className="p-5 rounded-2xl bg-white/40 border border-slate-200 hover:border-rose-500/30 transition">
               <Mountain className="w-8 h-8 text-[#E3004F] mb-3" />
-              <h4 className="font-bold text-white text-base mb-1">2,800m Altitud Andina</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <h4 className="font-bold text-zinc-900 text-base mb-1">2,800m Altitud Andina</h4>
+              <p className="text-slate-600 text-xs leading-relaxed">
                 Desarrollo lento y natural que produce tallos gruesos, rectos de hasta 110 cm y botones gigantes.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-black/40 border border-slate-800 hover:border-rose-500/30 transition">
+            <div className="p-5 rounded-2xl bg-white/40 border border-slate-200 hover:border-rose-500/30 transition">
               <Droplets className="w-8 h-8 text-[#E3004F] mb-3" />
-              <h4 className="font-bold text-white text-base mb-1">Agua de Deshielo Glacial</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <h4 className="font-bold text-zinc-900 text-base mb-1">Agua de Deshielo Glacial</h4>
+              <p className="text-slate-600 text-xs leading-relaxed">
                 Riego con agua pura proveniente del volcán Cayambe enriquecida con minerales volcánicos fértiles.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-black/40 border border-slate-800 hover:border-rose-500/30 transition">
+            <div className="p-5 rounded-2xl bg-white/40 border border-slate-200 hover:border-rose-500/30 transition">
               <Leaf className="w-8 h-8 text-[#E3004F] mb-3" />
-              <h4 className="font-bold text-white text-base mb-1">16+ Días en Florero</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <h4 className="font-bold text-zinc-900 text-base mb-1">16+ Días en Florero</h4>
+              <p className="text-slate-600 text-xs leading-relaxed">
                 Excelente hidratación que asegura vida prolongada en los escaparates de floristerías del mundo.
               </p>
             </div>

@@ -53,11 +53,11 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
           <span className="text-[#E3004F] font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase block mb-2">
             {currentLang === 'es' ? 'Optimización Logística de Importación' : 'Import Logistics Estimator'}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-zinc-900 tracking-tight">
             {currentLang === 'es' ? 'Calculador de Carga y Cajas' : 'Freight & Box Calculator'}
           </h2>
           <div className="w-16 h-1 bg-[#E3004F] mx-auto my-4 rounded-full" />
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             {currentLang === 'es'
               ? 'Calcule el volumen aproximado de tallos según la presentación de empaque y solicite tarifas preferenciales de flete aéreo.'
               : 'Calculate stem volume based on packaging specs and request preferential air freight rates.'}
@@ -84,8 +84,8 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
                     onClick={() => setBoxType(b)}
                     className={`p-2.5 sm:p-3.5 rounded-2xl text-center border transition-all ${
                       boxType === b
-                        ? 'bg-[#E3004F] border-[#E3004F] text-white shadow-[0_0_20px_rgba(227,0,79,0.5)] font-bold'
-                        : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700'
+                        ? 'bg-[#E3004F] border-[#E3004F] text-zinc-900 shadow-[0_0_20px_rgba(227,0,79,0.5)] font-bold'
+                        : 'bg-slate-100 border-slate-200 text-slate-700 hover:border-slate-700'
                     }`}
                   >
                     <span className="block text-base sm:text-lg font-bold font-mono">{b}</span>
@@ -103,7 +103,7 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
                 <label className="text-xs font-bold text-rose-300 uppercase tracking-wider">
                   2. {currentLang === 'es' ? 'Largo de Tallo Deseado:' : 'Stem Length:'}
                 </label>
-                <span className="text-sm font-bold text-white font-mono bg-rose-950 px-3 py-1 rounded-full border border-rose-500/30">
+                <span className="text-sm font-bold text-zinc-900 font-mono bg-rose-950 px-3 py-1 rounded-full border border-rose-500/30">
                   {stemLength} cm
                 </span>
               </div>
@@ -131,22 +131,22 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
               <label className="text-xs font-bold text-rose-300 uppercase tracking-wider block mb-2">
                 3. {currentLang === 'es' ? 'Cantidad de Cajas a Importar:' : 'Number of Boxes:'}
               </label>
-              <div className="flex items-center gap-4 bg-slate-900/90 p-3 rounded-2xl border border-slate-800">
+              <div className="flex items-center gap-4 bg-slate-100/90 p-3 rounded-2xl border border-slate-200">
                 <button
                   type="button"
                   onClick={() => setNumberOfBoxes(Math.max(1, numberOfBoxes - 1))}
-                  className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-[#E3004F] text-white font-bold text-lg transition"
+                  className="w-10 h-10 rounded-xl bg-slate-200 hover:bg-[#E3004F] text-zinc-900 font-bold text-lg transition"
                 >
                   -
                 </button>
                 <div className="flex-1 text-center">
-                  <span className="text-2xl font-bold font-mono text-white">{numberOfBoxes}</span>
-                  <span className="text-xs text-slate-400 block">{numberOfBoxes === 1 ? 'Caja' : 'Cajas'}</span>
+                  <span className="text-2xl font-bold font-mono text-zinc-900">{numberOfBoxes}</span>
+                  <span className="text-xs text-slate-600 block">{numberOfBoxes === 1 ? 'Caja' : 'Cajas'}</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setNumberOfBoxes(numberOfBoxes + 1)}
-                  className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-[#E3004F] text-white font-bold text-lg transition"
+                  className="w-10 h-10 rounded-xl bg-slate-200 hover:bg-[#E3004F] text-zinc-900 font-bold text-lg transition"
                 >
                   +
                 </button>
@@ -161,7 +161,7 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
               <select
                 value={destinationRegion}
                 onChange={(e) => setDestinationRegion(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 text-slate-200 text-sm rounded-xl p-3 outline-none focus:border-[#E3004F]"
+                className="w-full bg-slate-100 border border-slate-200 text-slate-800 text-sm rounded-xl p-3 outline-none focus:border-[#E3004F]"
               >
                 <option value="EE.UU. / Miami (MIA)">EE.UU. / Miami (MIA)</option>
                 <option value="Europa / Ámsterdam (AMS)">Europa / Ámsterdam (AMS)</option>
@@ -175,7 +175,7 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
           </div>
 
           {/* Results Summary Box Side */}
-          <div className="lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-[#E3004F]/40 bg-gradient-to-b from-rose-950/30 to-black/80 space-y-6 flex flex-col justify-between h-full shadow-2xl">
+          <div className="lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-[#E3004F]/40 bg-gradient-to-b from-rose-950/30 to-white/80 space-y-6 flex flex-col justify-between h-full shadow-2xl">
             <div>
               <div className="flex items-center justify-between border-b border-rose-500/20 pb-4 mb-6">
                 <span className="text-xs font-bold text-rose-400 uppercase tracking-widest flex items-center gap-2">
@@ -188,19 +188,19 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
               </div>
 
               <div className="space-y-4">
-                <div className="bg-black/60 p-4 rounded-2xl border border-slate-800 text-center">
-                  <span className="text-xs text-slate-400 font-medium block">Tallos Estimados por Caja:</span>
+                <div className="bg-white/60 p-4 rounded-2xl border border-slate-200 text-center">
+                  <span className="text-xs text-slate-600 font-medium block">Tallos Estimados por Caja:</span>
                   <span className="text-3xl font-display font-bold text-[#E3004F] my-1 block">
                     ~{stemsPerBox} tallos
                   </span>
-                  <span className="text-[10px] text-slate-400">
+                  <span className="text-[10px] text-slate-600">
                     Depende del volumen del botón según variedad
                   </span>
                 </div>
 
-                <div className="bg-black/60 p-5 rounded-2xl border border-rose-500/20 text-center">
-                  <span className="text-xs text-slate-300 font-medium block">Carga Total Estimada:</span>
-                  <span className="text-4xl sm:text-5xl font-display font-bold text-white my-1 block text-gradient-rose">
+                <div className="bg-white/60 p-5 rounded-2xl border border-rose-500/20 text-center">
+                  <span className="text-xs text-slate-700 font-medium block">Carga Total Estimada:</span>
+                  <span className="text-4xl sm:text-5xl font-display font-bold text-zinc-900 my-1 block text-gradient-rose">
                     {totalStems.toLocaleString()}
                   </span>
                   <span className="text-xs font-semibold text-rose-300">
@@ -208,7 +208,7 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
                   </span>
                 </div>
 
-                <div className="space-y-2 text-xs text-slate-300 pt-2">
+                <div className="space-y-2 text-xs text-slate-700 pt-2">
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                     <span>Cadena de frío mantenida a 2°C constante.</span>
@@ -230,7 +230,7 @@ export const FreightCalculator: React.FC<FreightCalculatorProps> = ({ currentLan
               href={getWhatsAppFreightLink()}
               target="_blank"
               rel="noreferrer"
-              className="w-full inline-flex items-center justify-center gap-3 bg-[#E3004F] hover:bg-[#ff1a66] text-white font-bold text-base py-4 px-6 rounded-2xl shadow-[0_0_25px_rgba(227,0,79,0.6)] transition transform hover:scale-[1.02]"
+              className="w-full inline-flex items-center justify-center gap-3 bg-[#E3004F] hover:bg-[#ff1a66] text-zinc-900 font-bold text-base py-4 px-6 rounded-2xl shadow-[0_0_25px_rgba(227,0,79,0.6)] transition transform hover:scale-[1.02]"
             >
               <WhatsAppIcon className="w-5 h-5 fill-current" />
               <span>Solicitar Cotización de Carga</span>

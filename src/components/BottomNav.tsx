@@ -38,7 +38,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentLang, onOpenQR }) =
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#000000]/95 backdrop-blur-xl border-t border-rose-500/30 px-2 py-2 shadow-[0_-10px_30px_rgba(0,0,0,0.9)]">
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-slate-50/95 backdrop-blur-xl border-t border-rose-500/30 px-2 py-2 shadow-[0_-10px_30px_rgba(0,0,0,0.9)]">
       <div className="flex justify-around items-center max-w-md mx-auto">
         {items.map((item, idx) => {
           const Icon = item.icon;
@@ -46,9 +46,9 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentLang, onOpenQR }) =
             <a
               key={idx}
               href={item.href}
-              className="flex flex-col items-center justify-center py-1 px-2 text-[10px] font-medium text-slate-300 hover:text-[#E3004F] transition-colors group"
+              className="flex flex-col items-center justify-center py-1 px-2 text-[10px] font-medium text-slate-700 hover:text-[#E3004F] transition-colors group"
             >
-              <Icon className="w-5 h-5 mb-0.5 text-slate-300 group-hover:text-[#E3004F] group-hover:scale-110 transition-transform" />
+              <Icon className="w-5 h-5 mb-0.5 text-slate-700 group-hover:text-[#E3004F] group-hover:scale-110 transition-transform" />
               <span>{item.label}</span>
             </a>
           );
