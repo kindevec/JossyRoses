@@ -28,7 +28,8 @@ export const Header = ({ onOpenQuoteModal }) => {
   ];
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/message/MMGXRJ5GA3S5N1', '_blank');
+    const mensaje = "Hola Jossy Roses, me gustaría recibir más información general.";
+    window.open(`https://wa.me/message/MMGXRJ5GA3S5N1?text=${encodeURIComponent(mensaje)}`, '_blank');
   };
 
   return (

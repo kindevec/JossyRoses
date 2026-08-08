@@ -32,13 +32,23 @@ export const QuoteModal = ({ isOpen, onClose, selectedVariety = '' }) => {
 
   const handleSubmitWhatsApp = (e) => {
     e.preventDefault();
-    window.open('https://wa.me/message/MMGXRJ5GA3S5N1', '_blank');
+    const mensaje = `Hola Jossy Roses, solicito cotización:
+- Nombre: ${formData.name}
+- Empresa: ${formData.company || 'N/A'}
+- Correo: ${formData.email}
+- Teléfono: ${formData.phone}
+- Variedad: ${formData.variety}
+- Longitud: ${formData.stemLength}
+- Volumen: ${formData.estimatedBoxes}
+- Comentarios: ${formData.comments || 'N/A'}`;
+    window.open(`https://wa.me/message/MMGXRJ5GA3S5N1?text=${encodeURIComponent(mensaje)}`, '_blank');
     setSubmitted(true);
   };
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    // Enviar también al WhatsApp como pidió el usuario
+    handleSubmitWhatsApp(e);
   };
 
   return (
