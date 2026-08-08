@@ -107,7 +107,7 @@ function App() {
                 <div className="flex items-center space-x-2">
                   <WhatsAppIcon className="w-4 h-4 fill-[#25D366]" />
                   <a
-                    href={`https://wa.me/message/MMGXRJ5GA3S5N1?text=${encodeURIComponent('Hola Jossy Roses, quisiera asesoría personalizada con un asesor comercial.')}`}
+                    href={`https://wa.me/593980849061?text=${encodeURIComponent('Hola Jossy Roses, quisiera asesoría personalizada con un asesor comercial.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-green-400 transition-colors font-medium text-green-300"
@@ -152,7 +152,7 @@ function App() {
 
       {/* Floating Official WhatsApp Action Button */}
       <a
-        href={`https://wa.me/message/MMGXRJ5GA3S5N1?text=${encodeURIComponent('Hola, me gustaría contactarme con Jossy Roses.')}`}
+        href={`https://wa.me/593980849061?text=${encodeURIComponent('Hola, me gustaría contactarme con Jossy Roses.')}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-20 md:bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 border-2 border-white group"

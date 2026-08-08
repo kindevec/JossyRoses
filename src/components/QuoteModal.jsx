@@ -41,7 +41,7 @@ export const QuoteModal = ({ isOpen, onClose, selectedVariety = '' }) => {
 - Longitud: ${formData.stemLength}
 - Volumen: ${formData.estimatedBoxes}
 - Comentarios: ${formData.comments || 'N/A'}`;
-    window.open(`https://wa.me/message/MMGXRJ5GA3S5N1?text=${encodeURIComponent(mensaje)}`, '_blank');
+    window.open(`https://wa.me/593980849061?text=${encodeURIComponent(mensaje)}`, '_blank');
     setSubmitted(true);
   };
 
