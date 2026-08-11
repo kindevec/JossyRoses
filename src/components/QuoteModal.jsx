@@ -56,34 +56,33 @@ ${formData.comments || 'N/A'}`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0A0A0A]/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#E6007E]/20 overflow-hidden my-8">
-        
-        {/* Modal Header */}
-        <div className="bg-[#0A0A0A] text-white p-6 sm:p-8 relative flex items-center justify-between border-b border-[#E6007E]/30">
-          <div className="flex items-center space-x-3">
-            <FlowerMandala className="w-8 h-8" color="#E6007E" spin={true} />
-            <div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#E6007E] block">
-                Atención Directa
-              </span>
-              <h3 className="font-serif text-2xl font-normal text-white">
-                Solicitud de Cotización Mayorista
-              </h3>
-            </div>
+    <div className="fixed inset-0 z-50 flex flex-col bg-white animate-fadeIn">
+      {/* Modal Header */}
+      <div className="bg-[#0A0A0A] text-white p-4 sm:p-6 relative flex items-center justify-between border-b border-[#E6007E]/30 shrink-0">
+        <div className="flex items-center space-x-3">
+          <FlowerMandala className="w-8 h-8" color="#E6007E" spin={true} />
+          <div>
+            <span className="text-[10px] uppercase font-bold tracking-widest text-[#E6007E] block">
+              Atención Directa
+            </span>
+            <h3 className="font-serif text-2xl font-normal text-white">
+              Solicitud de Cotización Mayorista
+            </h3>
           </div>
-
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-          >
-            <X className="w-6 h-6" />
-          </button>
         </div>
 
-        {/* Modal Body */}
+        <button
+          onClick={onClose}
+          className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition-colors shadow-lg"
+        >
+          <X className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Modal Body */}
+      <div className="flex-1 overflow-y-auto w-full">
         {submitted ? (
-          <div className="p-8 sm:p-12 text-center space-y-6">
+          <div className="p-8 sm:p-12 text-center space-y-6 max-w-2xl mx-auto mt-10">
             <div className="w-16 h-16 rounded-full bg-green-100 border-2 border-green-500 text-green-600 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
@@ -109,7 +108,7 @@ ${formData.comments || 'N/A'}`;
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmitWhatsApp} className="p-6 sm:p-8 space-y-5 text-left max-h-[80vh] overflow-y-auto">
+          <form onSubmit={handleSubmitWhatsApp} className="p-6 sm:p-10 space-y-6 text-left max-w-4xl mx-auto">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -279,7 +278,6 @@ ${formData.comments || 'N/A'}`;
 
           </form>
         )}
-
       </div>
     </div>
   );

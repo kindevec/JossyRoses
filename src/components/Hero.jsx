@@ -60,9 +60,9 @@ export const Hero = ({ onOpenQuoteModal }) => {
 
             {/* Stacked Hasfarm-Style Impact Headline with Glowing Shine */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-[#0A0A0A] font-bold tracking-tight uppercase leading-[1.05] animate-glowing-title">
-              CALIDAD. <br />
+              CALIDAD <br />
               <span className="inline-block text-white">
-                {"FRESCURA.".split('').map((char, index) => (
+                {"FRESCURA".split('').map((char, index) => (
                   <span
                     key={index}
                     className="inline-block animate-letter-shine"
@@ -73,7 +73,7 @@ export const Hero = ({ onOpenQuoteModal }) => {
                 ))}
               </span> <br />
               <span className="italic font-light text-[#0A0A0A] font-serif capitalize drop-shadow-[0_0_15px_rgba(230,0,126,0.25)]">
-                que enamora.
+                que enamora
               </span>
             </h1>
 

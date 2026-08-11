@@ -72,9 +72,12 @@ function App() {
             <div className="md:col-span-5 space-y-4 text-left">
               <div className="flex items-center space-x-3">
                 <FlowerMandala className="w-8 h-8" color="#E6007E" spin={true} />
-                <span className="font-serif text-2xl font-bold tracking-wide text-white">
-                  Jossy Roses
-                </span>
+                <div className="flex items-baseline font-serif text-2xl tracking-tight leading-none text-white">
+                  <span className="font-bold italic">J</span>
+                  <span className="font-medium">ossy</span>
+                  <span className="font-bold italic ml-1">R</span>
+                  <span className="font-medium">oses</span>
+                </div>
               </div>
               <p className="text-xs uppercase tracking-[0.3em] font-semibold text-[#E6007E]">
                 WHERE QUALITY COUNTS
@@ -143,7 +146,7 @@ function App() {
 
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
             <p>© {new Date().getFullYear()} Jossy Roses. Todos los derechos reservados. Venta al por Mayor.</p>
-            <p className="mt-2 sm:mt-0 font-serif italic text-gray-400">Jossy Roses x Hasfarm Hybrid Design</p>
+            <p className="mt-2 sm:mt-0 font-serif italic text-gray-400">Desarrollado por KinDev S.A.S.</p>
           </div>
 
         </div>
