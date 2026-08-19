@@ -124,43 +124,42 @@ ${sanitizedComments || 'N/A'}`;
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-1 py-8 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+      <main className="flex-1 py-6 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         
-        {/* Title Banner Card */}
-        <div className="bg-[#0A0A0A] text-white rounded-3xl p-6 sm:p-10 border border-[#E6007E]/30 shadow-2xl relative overflow-hidden mb-8 text-left">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#E6007E]/15 rounded-full blur-3xl pointer-events-none" />
+        {/* Compact Title Banner Card */}
+        <div className="bg-[#0A0A0A] text-white rounded-2xl p-4 sm:p-6 border border-[#E6007E]/30 shadow-xl relative overflow-hidden mb-6 text-left">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#E6007E]/15 rounded-full blur-2xl pointer-events-none" />
           
-          <div className="relative z-10 space-y-3">
-            <div className="inline-flex items-center space-x-2 bg-[#E6007E]/25 border border-[#E6007E]/40 px-3.5 py-1.5 rounded-full backdrop-blur-xs">
-              <FlowerMandala className="w-4 h-4" color="#E6007E" spin={true} />
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#E6007E]">
-                Atención Comercial Directa
-              </span>
+          <div className="relative z-10 space-y-2">
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="inline-flex items-center space-x-2 bg-[#E6007E]/20 border border-[#E6007E]/30 px-3 py-1 rounded-full">
+                <FlowerMandala className="w-3.5 h-3.5" color="#E6007E" spin={true} />
+                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#E6007E]">
+                  Atención Comercial Directa
+                </span>
+              </div>
+              <div className="flex items-center space-x-1.5 text-[11px] text-gray-400 font-sans">
+                <MapPin className="w-3.5 h-3.5 text-[#E6007E]" />
+                <span>Cayambe - Ecuador</span>
+              </div>
             </div>
 
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold uppercase text-white tracking-tight leading-tight">
-              Solicitud de Lista de Precios <br />
-              <span className="italic font-light text-[#E6007E] font-serif capitalize">
-                &amp; Cotización Mayorista
-              </span>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-white tracking-tight leading-snug">
+              Solicitud de Lista de Precios <span className="italic font-normal text-[#E6007E]">&amp; Cotización Mayorista</span>
             </h1>
 
-            <p className="text-gray-300 text-xs sm:text-sm max-w-2xl font-sans leading-relaxed">
-              Completa las especificaciones de tu pedido. Un asesor comercial de Jossy Roses te enviará la lista actualizada de precios al por mayor y catálogo para exportación directamente del cultivo en Ecuador.
+            <p className="text-gray-300 text-xs sm:text-sm max-w-xl font-sans leading-relaxed">
+              Completa tus datos para recibir la lista actualizada de precios al por mayor directamente del cultivo en Ecuador.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs text-gray-300">
-              <div className="flex items-center space-x-2">
-                <Award className="w-4 h-4 text-[#E6007E]" />
-                <span>Calidad 100% Exportación</span>
+            <div className="pt-1 flex flex-wrap gap-x-5 gap-y-1 text-[11px] text-gray-300">
+              <div className="flex items-center space-x-1.5">
+                <Award className="w-3.5 h-3.5 text-[#E6007E]" />
+                <span>Calidad Exportación</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <ShieldCheck className="w-4 h-4 text-[#E6007E]" />
+              <div className="flex items-center space-x-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#E6007E]" />
                 <span>Cadena de Frío Garantizada</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-[#E6007E]" />
-                <span>Cayambe - Ecuador</span>
               </div>
             </div>
           </div>
