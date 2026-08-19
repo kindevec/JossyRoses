@@ -91,7 +91,7 @@ ${sanitizedComments || 'N/A'}`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-white animate-fadeIn">
+    <div className="fixed inset-0 z-[100] flex flex-col bg-white animate-fadeIn">
       {/* Modal Header */}
       <div className="bg-[#0A0A0A] text-white p-4 sm:p-6 relative flex items-center justify-between border-b border-[#E6007E]/30 shrink-0">
         <div className="flex items-center space-x-3">
@@ -143,7 +143,7 @@ ${sanitizedComments || 'N/A'}`;
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmitWhatsApp} className="p-6 sm:p-10 space-y-6 text-left max-w-4xl mx-auto">
+          <form onSubmit={handleSubmitWhatsApp} className="p-6 pb-28 sm:p-10 sm:pb-12 space-y-6 text-left max-w-4xl mx-auto">
             
             {/* Anti-Spam Honeypot Field (Hidden from real users) */}
             <div style={{ display: 'none' }} aria-hidden="true">
