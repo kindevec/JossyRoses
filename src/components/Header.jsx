@@ -36,19 +36,19 @@ export const Header = ({ onOpenQuoteModal }) => {
       {/* Capa 1: Fondo degradado inicial cuando se está arriba del todo */}
       <div
         className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-300 bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/40 to-transparent"
-        style={{ opacity: mobileMenuOpen ? 0 : 1 - scrollRatio }}
+        style={{ opacity: 1 - scrollRatio }}
       />
 
       {/* Capa 2: Fondo oscuro sólido uniforme con blur progresivo al hacer scroll */}
       <div
         className="absolute inset-0 z-0 pointer-events-none backdrop-blur-md transition-opacity duration-150"
         style={{
-          opacity: mobileMenuOpen ? 1 : scrollRatio,
+          opacity: scrollRatio,
           backgroundColor: 'rgba(10, 10, 10, 0.95)',
-          borderBottom: `1px solid rgba(230, 0, 126, ${mobileMenuOpen ? 0.3 : 0.25 * scrollRatio})`,
+          borderBottom: `1px solid rgba(230, 0, 126, ${0.25 * scrollRatio})`,
           boxShadow:
-            scrollRatio > 0.1 || mobileMenuOpen
-              ? `0 10px 30px -10px rgba(0, 0, 0, ${0.7 * (mobileMenuOpen ? 1 : scrollRatio)})`
+            scrollRatio > 0.1
+              ? `0 10px 30px -10px rgba(0, 0, 0, ${0.7 * scrollRatio})`
               : 'none',
         }}
       />
