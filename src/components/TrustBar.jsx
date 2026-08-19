@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FlowerMandala } from './FlowerMandala';
-import { Sprout, ShieldCheck, Truck, CalendarCheck2, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Sprout, ShieldCheck, Truck, CalendarCheck2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { AnimateIn } from './AnimateIn';
 
 // Detailed Multi-layered Rose SVG Icon

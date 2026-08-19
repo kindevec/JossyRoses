@@ -6,7 +6,7 @@ export const FlowerMandala = ({ className = "w-8 h-8", color = "#E6007E", spin =
       viewBox="0 0 200 200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${className} transition-transform duration-500`}
+      className={`${className} transition-transform duration-500 ${spin ? 'animate-spin' : ''}`}
     >
       <g fill={color}>
         {/* Outer dots */}

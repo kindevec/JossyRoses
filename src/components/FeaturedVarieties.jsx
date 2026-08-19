@@ -10,8 +10,6 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const filterDropdownRef = useRef(null);
 
-  const ITEMS_PER_PAGE = 10; // 5 filas de 2 tarjetas en celular (10 tarjetas por página)
-
   // Close filter dropdown on click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -600,13 +598,19 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
                   className="group relative w-full h-[265px] sm:h-auto sm:aspect-square overflow-hidden rounded-2xl border border-gray-800/20 bg-[#0A0A0A] shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer text-left flex flex-col justify-between"
                 >
                   {/* Background Image with Zoom Effect on Hover */}
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-                  />
+                  <picture>
+                    <source srcSet={item.image.replace('.jpg', '.avif').replace('.webp', '.avif')} type="image/avif" />
+                    <source srcSet={item.image.replace('.jpg', '.webp')} type="image/webp" />
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      width="300"
+                      height="300"
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                    />
+                  </picture>
 
                   {/* Soft Bottom Gradient Overlay for Text Contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none group-hover:opacity-0 transition-opacity duration-500"></div>

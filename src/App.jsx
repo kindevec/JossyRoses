@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustBar } from './components/TrustBar';
@@ -8,13 +8,13 @@ import { B2BApplications } from './components/B2BApplications';
 import { NewsletterQuoteBar } from './components/NewsletterQuoteBar';
 import { FeaturedVarieties } from './components/FeaturedVarieties';
 import { MissionVision } from './components/MissionVision';
-import { QuoteModal } from './components/QuoteModal';
 import { FlowerMandala } from './components/FlowerMandala';
 import { WhatsAppIcon } from './components/WhatsAppIcon';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { Mail, MapPin } from 'lucide-react';
-
 import { AnimateIn } from './components/AnimateIn';
+
+const QuoteModal = lazy(() => import('./components/QuoteModal').then(module => ({ default: module.QuoteModal })));
 
 function App() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
@@ -167,12 +167,16 @@ function App() {
         </span>
       </a>
 
-      {/* Interactive Quotation Modal */}
-      <QuoteModal
-        isOpen={quoteModalOpen}
-        onClose={handleCloseQuoteModal}
-        selectedVariety={selectedVariety}
-      />
+      {/* Interactive Quotation Modal (Lazy Loaded) */}
+      <Suspense fallback={null}>
+        {quoteModalOpen && (
+          <QuoteModal
+            isOpen={quoteModalOpen}
+            onClose={handleCloseQuoteModal}
+            selectedVariety={selectedVariety}
+          />
+        )}
+      </Suspense>
 
       {/* Mobile Bottom Navigation */}
       <MobileBottomNav />

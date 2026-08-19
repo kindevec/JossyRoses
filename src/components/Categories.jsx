@@ -3,15 +3,15 @@ import { FlowerMandala } from './FlowerMandala';
 import { ArrowRight } from 'lucide-react';
 import { AnimateIn } from './AnimateIn';
 
-export const Categories = ({ onSelectCategory, onOpenQuoteModal }) => {
+export const Categories = ({ onOpenQuoteModal }) => {
   const collections = [
     {
       id: 'reds',
       name: 'ROSAS ROJAS',
       subtitle: 'Freedom & Explorer',
       description: 'Icono de pasión y elegancia clásica.',
-      image: '/images/cat-red.jpg',
-      hoverImage: '/images/cat-red-hover.jpg',
+      image: '/images/cat-red.webp',
+      hoverImage: '/images/cat-red-hover.webp',
       specs: 'Tallos 50-90cm • Cajas HB/EB',
     },
     {
@@ -19,8 +19,8 @@ export const Categories = ({ onSelectCategory, onOpenQuoteModal }) => {
       name: 'ROSAS ROSAS & PASTEL',
       subtitle: 'Pink Floyd & Sweet Akito',
       description: 'Tonos románticos ideales para bodas.',
-      image: '/images/cat-pink.jpg',
-      hoverImage: '/images/cat-pink-hover.jpg',
+      image: '/images/cat-pink.webp',
+      hoverImage: '/images/cat-pink-hover.webp',
       specs: 'Tallos 50-80cm • Cajas HB/EB',
     },
     {
@@ -28,8 +28,8 @@ export const Categories = ({ onSelectCategory, onOpenQuoteModal }) => {
       name: 'SPRAY ROSES',
       subtitle: 'Ramificadas Multi-botón',
       description: 'Múltiples botones por tallo para arreglos.',
-      image: '/images/cat-spray.jpg',
-      hoverImage: '/images/cat-spray-hover.jpg',
+      image: '/images/cat-spray.webp',
+      hoverImage: '/images/cat-spray-hover.webp',
       specs: 'Tallos 40-70cm • Cajas HB/EB',
     },
     {
@@ -37,8 +37,8 @@ export const Categories = ({ onSelectCategory, onOpenQuoteModal }) => {
       name: 'BICOLORES & EXÓTICAS',
       subtitle: 'High & Magic Dual Tone',
       description: 'Combinaciones vibrantes de alto impacto.',
-      image: '/images/cat-bicolor.jpg',
-      hoverImage: '/images/cat-bicolor-hover.jpg',
+      image: '/images/cat-bicolor.webp',
+      hoverImage: '/images/cat-bicolor-hover.webp',
       specs: 'Tallos 50-80cm • Cajas HB/EB',
     },
   ];
@@ -71,21 +71,27 @@ export const Categories = ({ onSelectCategory, onOpenQuoteModal }) => {
         {/* 4 Cards Horizontal Carousel on Mobile / Grid on Desktop */}
         <AnimateIn animation="fade-up" duration={700}>
           <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-none gap-3 pb-3 -mx-4 px-4 scroll-pl-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 sm:overflow-visible sm:pb-0">
-            {collections.map((item, index) => (
+            {collections.map((item) => (
               <div key={item.id} className="shrink-0 snap-start w-[187px] sm:w-auto">
                 <div
                   onClick={onOpenQuoteModal}
                   className="group relative cursor-pointer bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E6007E]/20 shadow-sm hover:shadow-2xl hover:border-[#E6007E] transition-all duration-300 flex flex-col justify-between text-left w-[187px] h-[294.5px] sm:w-full sm:h-[400px]"
                 >
                 {/* Full-Bleed Primary Image */}
-                <div className="relative h-[195px] sm:h-72 w-full overflow-hidden bg-gray-100">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
-                  />
+                <div className="relative h-[195px] sm:h-72 w-full overflow-hidden bg-gray-100 aspect-[4/3]">
+                  <picture>
+                    <source srcSet={item.image.replace('.webp', '.avif')} type="image/avif" />
+                    <source srcSet={item.image} type="image/webp" />
+                    <img
+                      src={item.image.replace('.webp', '.jpg')}
+                      alt={item.name}
+                      width="400"
+                      height="288"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/50 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
 
                   <span className="absolute top-2 left-2 sm:top-3.5 sm:left-3.5 bg-[#0A0A0A]/95 text-white text-[7.5px] sm:text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow border border-white/20 z-10">

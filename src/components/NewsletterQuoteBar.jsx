@@ -66,13 +66,19 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
                     className="group relative h-44 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl w-full"
                   >
                     {/* Background Image */}
-                    <img
-                      src={card.image}
-                      alt={card.offerText}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
+                    <picture>
+                      <source srcSet={card.image.replace('.jpg', '.avif')} type="image/avif" />
+                      <source srcSet={card.image.replace('.jpg', '.webp')} type="image/webp" />
+                      <img
+                        src={card.image}
+                        alt={card.offerText}
+                        width="300"
+                        height="288"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
+                    </picture>
                     
                     {/* Elegant White Border Rectangle Overlay */}
                     <div className="absolute inset-1.5 sm:inset-5 border sm:border-2 border-white/90 rounded-lg flex flex-col items-center justify-center text-center p-1 sm:p-4 bg-white/30 backdrop-blur-[1px] group-hover:bg-white/40 transition-all duration-300 shadow-sm">
@@ -105,13 +111,19 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
                   className="group relative h-44 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl bg-white w-full"
                 >
                   {/* Background Image */}
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
+                  <picture>
+                    <source srcSet={card.image.replace('.jpg', '.avif')} type="image/avif" />
+                    <source srcSet={card.image.replace('.jpg', '.webp')} type="image/webp" />
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      width="300"
+                      height="288"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                  </picture>
 
                   {/* Soft Gradient Overlay for text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/40 to-transparent opacity-95 group-hover:opacity-75 transition-opacity duration-300" />

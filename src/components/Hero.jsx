@@ -3,7 +3,6 @@ import { FlowerMandala } from './FlowerMandala';
 import { FileText } from 'lucide-react';
 
 export const Hero = ({ onOpenQuoteModal }) => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
   const [isTextExpanded, setIsTextExpanded] = useState(false);
   const videoRef = useRef(null);
 
@@ -40,8 +39,10 @@ export const Hero = ({ onOpenQuoteModal }) => {
         ref={videoRef}
         autoPlay
         muted
+        loop
         playsInline
-        onLoadedData={() => setVideoLoaded(true)}
+        preload="auto"
+        poster="/images/hero.webp"
         className="absolute inset-0 w-full h-full object-contain object-top md:object-cover md:object-center z-0 pointer-events-none opacity-90 transition-opacity duration-700"
       >
         <source src="/FondoImg.webm" type="video/webm" />

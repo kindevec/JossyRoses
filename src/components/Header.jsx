@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { WhatsAppIcon } from './WhatsAppIcon';
-import { Menu, X, ChevronRight, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 export const Header = ({ onOpenQuoteModal }) => {
   const [scrollRatio, setScrollRatio] = useState(0);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {

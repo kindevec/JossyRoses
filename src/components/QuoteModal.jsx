@@ -3,6 +3,17 @@ import { FlowerMandala } from './FlowerMandala';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { X, Send, CheckCircle2, Mail } from 'lucide-react';
 
+// Sanitization helper against XSS / Injection attacks
+const sanitizeInput = (str = '') => {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .trim();
+};
+
 export const QuoteModal = ({ isOpen, onClose, selectedVariety = '' }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -16,6 +27,8 @@ export const QuoteModal = ({ isOpen, onClose, selectedVariety = '' }) => {
     comments: '',
   });
 
+  const [honeypot, setHoneypot] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -28,30 +41,52 @@ export const QuoteModal = ({ isOpen, onClose, selectedVariety = '' }) => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (errorMessage) setErrorMessage('');
   };
 
   const handleSubmitWhatsApp = (e) => {
     e.preventDefault();
+
+    // 1. Anti-Spam Honeypot Verification
+    if (honeypot.trim() !== '') {
+      console.warn('Bot detected via honeypot field.');
+      setSubmitted(true);
+      return;
+    }
+
+    // 2. Input Sanitization
+    const sanitizedName = sanitizeInput(formData.name);
+    const sanitizedCompany = sanitizeInput(formData.company);
+    const sanitizedEmail = sanitizeInput(formData.email);
+    const sanitizedPhone = sanitizeInput(formData.phone);
+    const sanitizedComments = sanitizeInput(formData.comments);
+
+    // 3. Regex Email & Phone Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(sanitizedEmail)) {
+      setErrorMessage('Por favor, ingresa un correo electrónico válido.');
+      return;
+    }
+
     const mensaje = `*Hola Jossy Roses, solicito cotización:*
 
-👤 *Nombre:* ${formData.name}
-🏢 *Empresa:* ${formData.company || 'N/A'}
-📧 *Correo:* ${formData.email}
-📱 *Teléfono:* ${formData.phone}
+👤 *Nombre:* ${sanitizedName}
+🏢 *Empresa:* ${sanitizedCompany || 'N/A'}
+📧 *Correo:* ${sanitizedEmail}
+📱 *Teléfono:* ${sanitizedPhone}
 
 🌸 *Variedad:* ${formData.variety}
 📏 *Longitud:* ${formData.stemLength}
 📦 *Volumen:* ${formData.estimatedBoxes}
 
 💬 *Comentarios:*
-${formData.comments || 'N/A'}`;
+${sanitizedComments || 'N/A'}`;
     window.open(`https://wa.me/593980849061?text=${encodeURIComponent(mensaje)}`, '_blank');
     setSubmitted(true);
   };
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    // Enviar también al WhatsApp como pidió el usuario
     handleSubmitWhatsApp(e);
   };
 
@@ -109,6 +144,24 @@ ${formData.comments || 'N/A'}`;
           </div>
         ) : (
           <form onSubmit={handleSubmitWhatsApp} className="p-6 sm:p-10 space-y-6 text-left max-w-4xl mx-auto">
+            
+            {/* Anti-Spam Honeypot Field (Hidden from real users) */}
+            <div style={{ display: 'none' }} aria-hidden="true">
+              <input
+                type="text"
+                name="b_hp_fax"
+                tabIndex="-1"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                autoComplete="off"
+              />
+            </div>
+
+            {errorMessage && (
+              <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-xs font-semibold">
+                {errorMessage}
+              </div>
+            )}
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>

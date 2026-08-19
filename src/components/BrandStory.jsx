@@ -13,13 +13,19 @@ export const BrandStory = ({ onOpenQuoteModal }) => {
           
           {/* Mobile Full Background Image & Gradient (hidden on desktop) */}
           <div className="lg:hidden absolute inset-0 w-full h-full z-0 overflow-hidden">
-            <img
-              src="/images/post_harvest.jpg"
-              alt="Especialista realizando tratamiento de poscosecha a las rosas"
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover object-[75%_center] translate-x-[80px] scale-125"
-            />
+            <picture>
+              <source srcSet="/images/post_harvest.avif" type="image/avif" />
+              <source srcSet="/images/post_harvest.webp" type="image/webp" />
+              <img
+                src="/images/post_harvest.jpg"
+                alt="Especialista realizando tratamiento de poscosecha a las rosas"
+                width="600"
+                height="440"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover object-[75%_center] translate-x-[80px] scale-125"
+              />
+            </picture>
             <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/85 to-transparent/30 z-0" />
           </div>
 
@@ -63,13 +69,19 @@ export const BrandStory = ({ onOpenQuoteModal }) => {
           {/* Right Side: Desktop Only Photo Split */}
           <div className="hidden lg:block lg:col-span-6 relative lg:h-auto overflow-hidden">
             <AnimateIn animation="fade-right" duration={800} className="w-full h-full">
-              <img
-                src="/images/post_harvest.jpg"
-                alt="Especialista realizando tratamiento de poscosecha a las rosas"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
-              />
+              <picture>
+                <source srcSet="/images/post_harvest.avif" type="image/avif" />
+                <source srcSet="/images/post_harvest.webp" type="image/webp" />
+                <img
+                  src="/images/post_harvest.jpg"
+                  alt="Especialista realizando tratamiento de poscosecha a las rosas"
+                  width="600"
+                  height="440"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
+                />
+              </picture>
               
               {/* Soft Edge Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/60 via-transparent to-transparent pointer-events-none" />
