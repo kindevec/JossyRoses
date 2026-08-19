@@ -6,7 +6,17 @@ export const Logo = ({ variant = 'dark', className = '' }) => {
   // logo text: Jossy Roses in #E6007E or white, tagline in white/gray
   
   return (
-    <a href="#" className={`group flex items-center space-x-3 select-none ${className}`}>
+    <a
+      href="/"
+      onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.location.hash) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }}
+      className={`group flex items-center space-x-3 select-none ${className}`}
+    >
       {/* Icon on the Left */}
       <FlowerMandala 
         className="w-9 h-9 md:w-10 md:h-10 group-hover:rotate-45 transition-transform duration-700 ease-out shrink-0" 

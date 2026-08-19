@@ -46,6 +46,9 @@ export const MobileBottomNav = () => {
     if (item.id === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setActiveSection('hero');
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
       return;
     }
 

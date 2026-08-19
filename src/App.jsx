@@ -20,6 +20,13 @@ function App() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [selectedVariety, setSelectedVariety] = useState('');
 
+  useEffect(() => {
+    // Clean trailing empty hash (#) from URL if present
+    if (window.location.hash === '#' || window.location.hash === '#/') {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }, []);
+
   const handleOpenQuoteModal = (variety = '') => {
     setSelectedVariety(variety);
     setQuoteModalOpen(true);
