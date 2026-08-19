@@ -92,20 +92,23 @@ ${sanitizedComments || 'N/A'}`;
     handleSubmitWhatsApp(e);
   };
 
+  const underlineInputClasses = "w-full py-2.5 bg-transparent border-0 border-b-2 border-gray-300 focus:border-[#E6007E] outline-none text-sm text-[#0A0A0A] placeholder-gray-400 transition-colors font-medium rounded-none";
+  const underlineSelectClasses = "w-full py-2.5 bg-transparent border-0 border-b-2 border-gray-300 focus:border-[#E6007E] outline-none text-sm text-[#0A0A0A] transition-colors font-medium rounded-none cursor-pointer";
+
   return (
     <div className="min-h-screen bg-[#FAF0F3] text-[#0A0A0A] font-sans selection:bg-[#E6007E] selection:text-white flex flex-col justify-between">
       
       {/* Page Header */}
-      <header className="bg-[#0A0A0A] text-white py-4 px-4 sm:px-8 border-b border-[#E6007E]/30 sticky top-0 z-50 shadow-xl">
+      <header className="bg-[#0A0A0A] text-white py-3 px-4 sm:px-8 border-b border-[#E6007E]/30 sticky top-0 z-50 shadow-xl">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Logo variant="light" />
 
           <div className="flex items-center space-x-3">
             <Link
               to="/"
-              className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-[#E6007E] transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full border border-white/10"
+              className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-[#E6007E] transition-colors bg-white/5 hover:bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Volver al Inicio</span>
               <span className="sm:hidden">Inicio</span>
             </Link>
@@ -114,9 +117,9 @@ ${sanitizedComments || 'N/A'}`;
               href="https://wa.me/593980849061?text=Hola%20Jossy%20Roses%2C%20quisiera%20asesor%C3%ADa%20para%20una%20lista%20de%20precios."
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba5a] px-4 py-2 rounded-full shadow-md transition-all"
+              className="hidden md:inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba5a] px-4 py-1.5 rounded-full shadow-md transition-all"
             >
-              <WhatsAppIcon className="w-4 h-4 fill-white" />
+              <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
               <span>WhatsApp Directo</span>
             </a>
           </div>
@@ -124,7 +127,7 @@ ${sanitizedComments || 'N/A'}`;
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-1 py-6 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+      <main className="flex-1 py-5 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full pb-28 sm:pb-12">
         
         {/* Compact Title Banner Card */}
         <div className="bg-[#0A0A0A] text-white rounded-2xl p-4 sm:p-6 border border-[#E6007E]/30 shadow-xl relative overflow-hidden mb-6 text-left">
@@ -228,9 +231,9 @@ ${sanitizedComments || 'N/A'}`;
                 </div>
               )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                     Nombre Completo *
                   </label>
                   <input
@@ -240,12 +243,12 @@ ${sanitizedComments || 'N/A'}`;
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Ej. Sofia Martínez"
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-gray-50/50 focus:bg-white transition-all"
+                    className={underlineInputClasses}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                     Empresa / Floristería / Estudio Floral
                   </label>
                   <input
@@ -254,14 +257,14 @@ ${sanitizedComments || 'N/A'}`;
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Ej. Luxury Floral Studio"
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-gray-50/50 focus:bg-white transition-all"
+                    className={underlineInputClasses}
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                     Correo Electrónico *
                   </label>
                   <input
@@ -271,12 +274,12 @@ ${sanitizedComments || 'N/A'}`;
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="sofia@ejemplo.com"
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-gray-50/50 focus:bg-white transition-all"
+                    className={underlineInputClasses}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                     Teléfono / WhatsApp *
                   </label>
                   <input
@@ -286,12 +289,12 @@ ${sanitizedComments || 'N/A'}`;
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+1 (555) 000-0000"
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-gray-50/50 focus:bg-white transition-all"
+                    className={underlineInputClasses}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                     Ciudad / País de Destino
                   </label>
                   <input
@@ -300,21 +303,21 @@ ${sanitizedComments || 'N/A'}`;
                     value={formData.country}
                     onChange={handleChange}
                     placeholder="Ej. Miami, EE. UU."
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-gray-50/50 focus:bg-white transition-all"
+                    className={underlineInputClasses}
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                     Variedad de Interés
                   </label>
                   <select
                     name="variety"
                     value={formData.variety}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-white"
+                    className={underlineSelectClasses}
                   >
                     <option value="Todas las variedades / Asesoría">Todas las variedades</option>
                     <option value="Freedom Red">Freedom (Rojo)</option>
@@ -327,14 +330,14 @@ ${sanitizedComments || 'N/A'}`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                     Longitud de Tallo
                   </label>
                   <select
                     name="stemLength"
                     value={formData.stemLength}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-white"
+                    className={underlineSelectClasses}
                   >
                     <option value="50 cm">50 cm</option>
                     <option value="60 cm">60 cm</option>
@@ -345,14 +348,14 @@ ${sanitizedComments || 'N/A'}`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                     Volumen Estimado
                   </label>
                   <select
                     name="estimatedBoxes"
                     value={formData.estimatedBoxes}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-white"
+                    className={underlineSelectClasses}
                   >
                     <option value="1-4 Cajas">1 - 4 Cajas (Prueba)</option>
                     <option value="5-10 Cajas (HB)">5 - 10 Cajas</option>
@@ -363,21 +366,21 @@ ${sanitizedComments || 'N/A'}`;
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
                   Comentarios Adicionales / Especificaciones de Empaque
                 </label>
                 <textarea
                   name="comments"
-                  rows={3}
+                  rows={2}
                   value={formData.comments}
                   onChange={handleChange}
                   placeholder="Indica cualquier requerimiento especial de apertura, empaque o fecha deseada de llegada..."
-                  className="w-full px-4 py-3 rounded-2xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-gray-50/50 focus:bg-white transition-all"
+                  className="w-full py-2.5 bg-transparent border-0 border-b-2 border-gray-300 focus:border-[#E6007E] outline-none text-sm text-[#0A0A0A] placeholder-gray-400 transition-colors font-medium rounded-none resize-y"
                 />
               </div>
 
               {/* Official Contact Email Badges */}
-              <div className="p-4 rounded-2xl bg-[#FAF0F3] border border-[#E6007E]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs space-y-2 sm:space-y-0">
+              <div className="p-3.5 rounded-2xl bg-[#FAF0F3] border border-[#E6007E]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs space-y-2 sm:space-y-0">
                 <div className="flex items-center space-x-2 text-gray-700 font-medium">
                   <Mail className="w-4 h-4 text-[#E6007E]" />
                   <span>Emails Directos de Atención Comercial:</span>
@@ -392,16 +395,16 @@ ${sanitizedComments || 'N/A'}`;
               <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold uppercase tracking-wider text-xs rounded-2xl shadow-lg shadow-[#25D366]/20 flex items-center justify-center space-x-2 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                  className="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-[#25D366]/20 flex items-center justify-center space-x-2 transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <WhatsAppIcon className="w-5 h-5 fill-white" />
+                  <WhatsAppIcon className="w-4 h-4 fill-white" />
                   <span>Solicitar por WhatsApp Directo</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={handleSubmitForm}
-                  className="w-full py-4 bg-[#0A0A0A] hover:bg-[#E6007E] text-white font-bold uppercase tracking-wider text-xs rounded-2xl shadow-lg flex items-center justify-center space-x-2 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                  className="w-full py-3.5 bg-[#0A0A0A] hover:bg-[#E6007E] text-white font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg flex items-center justify-center space-x-2 transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Enviar por Formulario</span>
@@ -414,16 +417,16 @@ ${sanitizedComments || 'N/A'}`;
 
       </main>
 
-      {/* Page Footer */}
-      <footer className="bg-[#0A0A0A] text-white py-8 border-t border-[#E6007E]/30 text-xs text-gray-400">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Jossy Roses. Todos los derechos reservados. Venta al por Mayor.</p>
-          <div className="flex items-center space-x-4">
+      {/* Page Compact Footer */}
+      <footer className="bg-[#0A0A0A] text-white py-4 pb-24 sm:pb-4 border-t border-[#E6007E]/30 text-[10px] sm:text-xs text-gray-400">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p>© {new Date().getFullYear()} Jossy Roses. Venta al por Mayor.</p>
+          <div className="flex items-center space-x-3">
             <Link to="/" className="hover:text-[#E6007E] transition-colors">Inicio</Link>
             <span>•</span>
             <a href="mailto:Sales1.rosesjossy@gmail.com" className="hover:text-[#E6007E] transition-colors">Ventas</a>
             <span>•</span>
-            <span className="font-serif italic text-gray-400">Desarrollado por KinDev S.A.S.</span>
+            <span className="font-serif italic text-gray-400">KinDev S.A.S.</span>
           </div>
         </div>
       </footer>
