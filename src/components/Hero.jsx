@@ -42,8 +42,7 @@ export const Hero = ({ onOpenQuoteModal }) => {
         loop
         playsInline
         preload="auto"
-        poster="/images/hero.webp"
-        className="absolute inset-0 w-full h-full object-contain object-top md:object-cover md:object-center z-0 pointer-events-none opacity-90 transition-opacity duration-700"
+        className="absolute inset-0 w-full h-full object-contain object-top md:object-cover md:object-center z-0 pointer-events-none opacity-90 transition-opacity duration-700 bg-[#0F050A]"
       >
         <source src="/FondoImg.webm" type="video/webm" />
       </video>
