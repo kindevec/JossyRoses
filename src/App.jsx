@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustBar } from './components/TrustBar';
@@ -13,12 +14,14 @@ import { WhatsAppIcon } from './components/WhatsAppIcon';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { Mail, MapPin } from 'lucide-react';
 import { AnimateIn } from './components/AnimateIn';
+import { QuotePage } from './pages/QuotePage';
 
 const QuoteModal = lazy(() => import('./components/QuoteModal').then(module => ({ default: module.QuoteModal })));
 
-function App() {
+function HomePage() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [selectedVariety, setSelectedVariety] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Clean trailing empty hash (#) from URL if present
@@ -28,8 +31,12 @@ function App() {
   }, []);
 
   const handleOpenQuoteModal = (variety = '') => {
-    setSelectedVariety(variety);
-    setQuoteModalOpen(true);
+    if (variety) {
+      setSelectedVariety(variety);
+      setQuoteModalOpen(true);
+    } else {
+      navigate('/solicitar-cotizacion');
+    }
   };
 
   const handleCloseQuoteModal = () => {
@@ -40,24 +47,24 @@ function App() {
   return (
     <div className="min-h-screen bg-[#FDF3F6] text-[#0A0A0A] font-sans selection:bg-[#E6007E] selection:text-white">
       {/* 1. Header / Navigation */}
-      <Header onOpenQuoteModal={() => handleOpenQuoteModal()} />
+      <Header onOpenQuoteModal={() => navigate('/solicitar-cotizacion')} />
 
       {/* Main Content Flow - Hasfarm x Jossy Roses Hybrid */}
       <main>
         {/* 2. Hero Section */}
-        <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
+        <Hero onOpenQuoteModal={() => navigate('/solicitar-cotizacion')} />
 
         {/* 3. Trust Bar */}
         <TrustBar />
 
         {/* 4. Categories & Collections */}
-        <Categories onOpenQuoteModal={() => handleOpenQuoteModal()} />
+        <Categories onOpenQuoteModal={(variety) => handleOpenQuoteModal(variety)} />
 
         {/* 5. Brand Story */}
-        <BrandStory onOpenQuoteModal={() => handleOpenQuoteModal()} />
+        <BrandStory onOpenQuoteModal={() => navigate('/solicitar-cotizacion')} />
 
         {/* 6. B2B Applications */}
-        <B2BApplications onOpenQuoteModal={() => handleOpenQuoteModal()} />
+        <B2BApplications onOpenQuoteModal={() => navigate('/solicitar-cotizacion')} />
 
         {/* 7. Newsletter Quote Subscription Bar & Banner Cards */}
         <NewsletterQuoteBar onOpenQuoteModal={(variety) => handleOpenQuoteModal(variety)} />
@@ -104,7 +111,7 @@ function App() {
                 <li><a href="#categories" className="hover:text-[#E6007E] transition-colors">Colecciones Mayoristas</a></li>
                 <li><a href="#about" className="hover:text-[#E6007E] transition-colors">Nuestra Poscosecha</a></li>
                 <li><a href="#mission-vision" className="hover:text-[#E6007E] transition-colors">Misión & Visión</a></li>
-                <li><a href="#contact" className="hover:text-[#E6007E] transition-colors">Contacto Asesor</a></li>
+                <li><Link to="/solicitar-cotizacion" className="hover:text-[#E6007E] transition-colors">Solicitar Cotización</Link></li>
               </ul>
             </div>
 
@@ -141,12 +148,14 @@ function App() {
                   <span>Cayambe - Ecuador</span>
                 </div>
               </div>
-              <button
-                onClick={() => handleOpenQuoteModal()}
-                className="mt-4 px-6 py-2.5 bg-[#E6007E] hover:bg-[#C4006B] text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg transition-colors"
+
+              {/* Botón de Página Independiente de Cotización */}
+              <Link
+                to="/solicitar-cotizacion"
+                className="mt-4 inline-block px-6 py-2.5 bg-[#E6007E] hover:bg-[#C4006B] text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg transition-all transform hover:-translate-y-0.5"
               >
                 Solicitar Lista de Precios
-              </button>
+              </Link>
             </div>
 
           </div>
@@ -188,6 +197,19 @@ function App() {
       {/* Mobile Bottom Navigation */}
       <MobileBottomNav />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/solicitar-cotizacion" element={<QuotePage />} />
+        <Route path="/lista-de-precios" element={<QuotePage />} />
+        <Route path="/cotizacion" element={<QuotePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
