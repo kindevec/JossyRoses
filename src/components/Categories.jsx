@@ -92,7 +92,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
                       className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
                     />
                   </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/50 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/50 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
 
                   <span className="absolute top-2 left-2 sm:top-3.5 sm:left-3.5 bg-[#0A0A0A]/95 text-white text-[7.5px] sm:text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow border border-white/20 z-10">
                     {item.specs}
@@ -119,7 +119,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
                 <div className="absolute top-0 right-0 w-[20%] h-[20%] group-hover:w-full group-hover:h-full rounded-tr-2xl sm:rounded-tr-3xl rounded-bl-[100%] group-hover:rounded-2xl sm:group-hover:rounded-3xl transition-all duration-500 ease-in-out overflow-hidden z-20 pointer-events-none bg-[#E6007E]/20 border-b border-l border-[#E6007E]/30 group-hover:border-none opacity-80 group-hover:opacity-0" />
 
                 {/* 🌸 Bottom-Left Expanding Corner Layer with Second Image (::after effect) */}
-                <div className="absolute bottom-0 left-0 w-[20%] h-[20%] group-hover:w-full group-hover:h-full rounded-bl-2xl sm:rounded-bl-3xl rounded-tr-[100%] group-hover:rounded-2xl sm:group-hover:rounded-3xl transition-all duration-500 ease-in-out overflow-hidden z-30 opacity-0 group-hover:opacity-100 shadow-2xl flex flex-col justify-between p-3 sm:p-6 bg-[#0A0A0A]">
+                <div className="absolute bottom-0 left-0 w-[20%] h-[20%] group-hover:w-full group-hover:h-full rounded-bl-2xl sm:rounded-bl-3xl rounded-tr-[100%] group-hover:rounded-2xl sm:group-hover:rounded-3xl transition-all duration-500 ease-in-out overflow-hidden z-30 opacity-0 invisible group-hover:opacity-100 group-hover:visible shadow-2xl flex flex-col justify-between p-3 sm:p-6 bg-[#0A0A0A] pointer-events-none group-hover:pointer-events-auto">
                   {/* Second Generated Image Background */}
                   <img
                     src={item.hoverImage}
