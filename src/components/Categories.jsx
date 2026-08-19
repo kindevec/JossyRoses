@@ -83,7 +83,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
                     <source srcSet={item.image.replace('.webp', '.avif')} type="image/avif" />
                     <source srcSet={item.image} type="image/webp" />
                     <img
-                      src={item.image.replace('.webp', '.jpg')}
+                      src={item.image}
                       alt={item.name}
                       width="400"
                       height="288"

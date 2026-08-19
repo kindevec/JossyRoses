@@ -8,7 +8,7 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
     {
       id: 2,
       type: 'framed-offer',
-      image: '/images/banner_card_2.jpg',
+      image: '/images/banner_card_2.webp',
       topText: "Happy Flower's",
       offerText: '25% OFF',
       subBadge: 'Temporada Alta',
@@ -18,7 +18,7 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
     {
       id: 1,
       type: 'collection',
-      image: '/images/banner_card_1.jpg',
+      image: '/images/banner_card_1.webp',
       subtitle: 'From $0.45 / stem',
       title: 'NUEVA COLECCIÓN',
       badge: 'Rosas Tinturadas',
@@ -29,7 +29,7 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
     {
       id: 3,
       type: 'collection',
-      image: '/images/banner_card_3.jpg',
+      image: '/images/banner_card_3.webp',
       subtitle: 'From $0.50 / stem',
       title: 'NEW COLLECTION',
       badge: 'Garden Roses',
@@ -39,7 +39,7 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
     {
       id: 4,
       type: 'framed-offer',
-      image: '/images/banner_card_4.jpg',
+      image: '/images/banner_card_4.webp',
       topText: "Happy Flower's",
       offerText: '25% OFF',
       subBadge: 'Exportación',
@@ -67,8 +67,8 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
                   >
                     {/* Background Image */}
                     <picture>
-                      <source srcSet={card.image.replace('.jpg', '.avif')} type="image/avif" />
-                      <source srcSet={card.image.replace('.jpg', '.webp')} type="image/webp" />
+                      <source srcSet={card.image.replace('.webp', '.avif')} type="image/avif" />
+                      <source srcSet={card.image} type="image/webp" />
                       <img
                         src={card.image}
                         alt={card.offerText}

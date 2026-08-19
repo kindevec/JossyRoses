@@ -17,7 +17,7 @@ export const BrandStory = ({ onOpenQuoteModal }) => {
               <source srcSet="/images/post_harvest.avif" type="image/avif" />
               <source srcSet="/images/post_harvest.webp" type="image/webp" />
               <img
-                src="/images/post_harvest.jpg"
+                src="/images/post_harvest.webp"
                 alt="Especialista realizando tratamiento de poscosecha a las rosas"
                 width="600"
                 height="440"
@@ -73,7 +73,7 @@ export const BrandStory = ({ onOpenQuoteModal }) => {
                 <source srcSet="/images/post_harvest.avif" type="image/avif" />
                 <source srcSet="/images/post_harvest.webp" type="image/webp" />
                 <img
-                  src="/images/post_harvest.jpg"
+                  src="/images/post_harvest.webp"
                   alt="Especialista realizando tratamiento de poscosecha a las rosas"
                   width="600"
                   height="440"
