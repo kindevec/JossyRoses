@@ -44,6 +44,7 @@ export const Hero = ({ onOpenQuoteModal }) => {
         preload="auto"
         className="absolute inset-0 w-full h-full object-contain object-top md:object-cover md:object-center z-0 pointer-events-none opacity-90 transition-opacity duration-700 bg-[#0F050A]"
       >
+        <source src="/FondoImg-mobile.webm" media="(max-width: 767px)" type="video/webm" />
         <source src="/FondoImg.webm" type="video/webm" />
       </video>
 
@@ -62,15 +63,7 @@ export const Hero = ({ onOpenQuoteModal }) => {
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-[#0A0A0A] font-bold tracking-tight uppercase leading-[1.05] animate-glowing-title">
               CALIDAD <br />
               <span className="inline-block text-white">
-                {"FRESCURA".split('').map((char, index) => (
-                  <span
-                    key={index}
-                    className="inline-block animate-letter-shine"
-                    style={{ animationDelay: `${index * 0.08 + 0.1}s` }}
-                  >
-                    {char}
-                  </span>
-                ))}
+                FRESCURA
               </span> <br />
               <span className="italic font-light text-[#0A0A0A] font-serif capitalize drop-shadow-[0_0_15px_rgba(230,0,126,0.25)]">
                 que enamora
