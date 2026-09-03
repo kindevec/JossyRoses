@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -14,12 +14,9 @@ import { WhatsAppIcon } from './components/WhatsAppIcon';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { Mail, MapPin } from 'lucide-react';
 import { AnimateIn } from './components/AnimateIn';
-import { QuoteModal } from './components/QuoteModal';
-const QuotePage = lazy(() => import('./pages/QuotePage').then(module => ({ default: module.QuotePage })));
+import { QuotePage } from './pages/QuotePage';
 
 function HomePage() {
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
-  const [selectedVariety, setSelectedVariety] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,18 +26,12 @@ function HomePage() {
     }
   }, []);
 
-  const handleOpenQuoteModal = (variety = '') => {
+  const handleOpenQuote = (variety = '') => {
     if (variety) {
-      setSelectedVariety(variety);
-      setQuoteModalOpen(true);
+      navigate(`/solicitar-cotizacion?variety=${encodeURIComponent(variety)}`);
     } else {
       navigate('/solicitar-cotizacion');
     }
-  };
-
-  const handleCloseQuoteModal = () => {
-    setQuoteModalOpen(false);
-    setSelectedVariety('');
   };
 
   return (
@@ -57,19 +48,19 @@ function HomePage() {
         <TrustBar />
 
         {/* 4. Categories & Collections */}
-        <Categories onOpenQuoteModal={(variety) => handleOpenQuoteModal(variety)} />
+        <Categories onOpenQuoteModal={(variety) => handleOpenQuote(variety)} />
 
         {/* 5. Brand Story */}
-        <BrandStory onOpenQuoteModal={() => navigate('/solicitar-cotizacion')} />
+        <BrandStory onOpenQuoteModal={() => handleOpenQuote()} />
 
         {/* 6. B2B Applications */}
-        <B2BApplications onOpenQuoteModal={() => navigate('/solicitar-cotizacion')} />
+        <B2BApplications onOpenQuoteModal={() => handleOpenQuote()} />
 
         {/* 7. Newsletter Quote Subscription Bar & Banner Cards */}
-        <NewsletterQuoteBar onOpenQuoteModal={(variety) => handleOpenQuoteModal(variety)} />
+        <NewsletterQuoteBar onOpenQuoteModal={(variety) => handleOpenQuote(variety)} />
 
         {/* 8. Featured Varieties Catalog */}
-        <FeaturedVarieties onSelectVarietyForQuote={(varietyName) => handleOpenQuoteModal(varietyName)} />
+        <FeaturedVarieties onSelectVarietyForQuote={(varietyName) => handleOpenQuote(varietyName)} />
 
         {/* 9. Misión & Visión Section (Justo antes del Footer) */}
         <MissionVision />
@@ -182,15 +173,6 @@ function HomePage() {
         </span>
       </a>
 
-      {/* Interactive Quotation Modal (Instant Zero-Delay) */}
-      {quoteModalOpen && (
-        <QuoteModal
-          isOpen={quoteModalOpen}
-          onClose={handleCloseQuoteModal}
-          selectedVariety={selectedVariety}
-        />
-      )}
-
       {/* Mobile Bottom Navigation */}
       <MobileBottomNav />
     </div>
@@ -200,14 +182,12 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div className="min-h-screen bg-[#FAF0F3]" />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/solicitar-cotizacion" element={<QuotePage />} />
-          <Route path="/lista-de-precios" element={<QuotePage />} />
-          <Route path="/cotizacion" element={<QuotePage />} />
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/solicitar-cotizacion" element={<QuotePage />} />
+        <Route path="/lista-de-precios" element={<QuotePage />} />
+        <Route path="/cotizacion" element={<QuotePage />} />
+      </Routes>
     </BrowserRouter>
   );
 }
