@@ -176,25 +176,8 @@ export const Categories = ({ onOpenQuoteModal }) => {
             </p>
           </div>
 
-          {/* Carousel Navigation Buttons (Desktop) & Ver Catálogo Link */}
+          {/* Ver Catálogo Link */}
           <div className="flex items-center space-x-3 self-end sm:self-auto">
-            <div className="hidden sm:flex items-center space-x-2">
-              <button
-                onClick={() => scroll('left')}
-                className="w-8 h-8 rounded-full border border-gray-300 hover:border-[#E6007E] text-gray-600 hover:text-[#E6007E] bg-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
-                title="Variedades anteriores"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => scroll('right')}
-                className="w-8 h-8 rounded-full border border-gray-300 hover:border-[#E6007E] text-gray-600 hover:text-[#E6007E] bg-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
-                title="Variedades siguientes"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-
             <a
               href="#catalog"
               className="group flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#E6007E] hover:text-[#C4006B]"
@@ -207,12 +190,35 @@ export const Categories = ({ onOpenQuoteModal }) => {
           </div>
         </div>
 
-        {/* 13 Real Flowers Horizontal Carousel */}
-        <AnimateIn animation="fade-up" duration={700}>
-          <div
-            ref={carouselRef}
-            className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-none gap-3.5 pb-4 -mx-4 px-4 scroll-pl-4 sm:mx-0 sm:px-0 sm:gap-6"
+        {/* 13 Real Flowers Horizontal Carousel with Side Floating Arrows (Desktop) */}
+        <div className="relative">
+          {/* Floating Left Button (Desktop only) */}
+          <button
+            type="button"
+            onClick={() => scroll('left')}
+            className="hidden md:flex absolute -left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white text-[#0A0A0A] hover:text-white hover:bg-[#E6007E] border border-gray-200 hover:border-[#E6007E] items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
+            title="Variedades anteriores"
+            aria-label="Desplazar a la izquierda"
           >
+            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
+          </button>
+
+          {/* Floating Right Button (Desktop only) */}
+          <button
+            type="button"
+            onClick={() => scroll('right')}
+            className="hidden md:flex absolute -right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white text-[#0A0A0A] hover:text-white hover:bg-[#E6007E] border border-gray-200 hover:border-[#E6007E] items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
+            title="Variedades siguientes"
+            aria-label="Desplazar a la derecha"
+          >
+            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
+          </button>
+
+          <AnimateIn animation="fade-up" duration={700}>
+            <div
+              ref={carouselRef}
+              className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-none gap-3.5 pb-4 -mx-4 px-4 scroll-pl-4 sm:mx-0 sm:px-0 sm:gap-6 scroll-smooth"
+            >
             {realRoses.map((item) => {
               const isActive = activeCardId === item.id;
 
@@ -323,6 +329,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
             })}
           </div>
         </AnimateIn>
+      </div>
 
       </div>
     </section>
