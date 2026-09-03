@@ -492,67 +492,69 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
 
                     {/* 🌸 LUXURY HOVER (Desktop) & ONE-TOUCH (Mobile) OVERLAY */}
                     <div
-                      className={`absolute inset-0 w-full h-full p-3.5 sm:p-5 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/85 to-[#0A0A0A]/60 backdrop-blur-md transition-all duration-400 ease-in-out z-20 flex flex-col justify-between overflow-hidden ${
+                      className={`absolute inset-0 w-full h-full p-5 sm:p-5 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/90 to-[#0A0A0A]/70 backdrop-blur-md transition-all duration-400 ease-in-out z-20 flex flex-col justify-between overflow-hidden ${
                         isActive
                           ? 'opacity-100 pointer-events-auto translate-y-0'
                           : 'opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto translate-y-2 group-hover:translate-y-0'
                       }`}
                     >
                       {/* Top Header inside overlay: Mandala + Real Rose Tag + Close Button */}
-                      <div className="flex items-center justify-between pb-1.5 sm:pb-2 border-b border-white/15 shrink-0">
-                        <div className="flex items-center space-x-1.5 sm:space-x-2">
-                          <FlowerMandala className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" color="#E6007E" spin={true} />
-                          <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[#E6007E] bg-[#E6007E]/10 px-2 py-0.5 rounded-full border border-[#E6007E]/20">
+                      <div className="flex items-center justify-between pb-2 border-b border-white/20 shrink-0">
+                        <div className="flex items-center space-x-2">
+                          <FlowerMandala className="w-5 h-5 shrink-0" color="#E6007E" spin={true} />
+                          <span className="text-[10px] sm:text-[9px] font-bold uppercase tracking-wider text-[#E6007E] bg-[#E6007E]/15 px-2.5 py-1 sm:px-2 sm:py-0.5 rounded-full border border-[#E6007E]/30">
                             Rosa Real
                           </span>
                         </div>
 
-                        <span className="text-[8px] sm:text-[9px] text-white/70 font-semibold bg-white/10 px-2 py-0.5 rounded-full border border-white/10">
-                          {item.badge}
-                        </span>
+                        <div className="flex items-center space-x-2">
+                          <span className="text-[10px] sm:text-[9px] text-white/80 font-semibold bg-white/10 px-2.5 py-1 sm:px-2 sm:py-0.5 rounded-full border border-white/15">
+                            {item.badge}
+                          </span>
 
-                        {/* Close button for touch devices */}
-                        {isActive && (
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setActiveCardId(null);
-                            }}
-                            className="sm:hidden w-6 h-6 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer ml-1"
-                            title="Cerrar detalles"
-                          >
-                            <X className="w-3.5 h-3.5" />
-                          </button>
-                        )}
+                          {/* Close button for touch devices */}
+                          {isActive && (
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActiveCardId(null);
+                              }}
+                              className="sm:hidden w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer active:scale-90"
+                              title="Cerrar detalles"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                          )}
+                        </div>
                       </div>
 
-                      {/* Center Info: Name, Color, Description & Stem Lengths */}
-                      <div className="space-y-1 sm:space-y-1.5 my-auto">
+                      {/* Center Info: Name, Color, Description & Stem Lengths (Enlarged for Mobile) */}
+                      <div className="space-y-2.5 sm:space-y-1.5 my-auto">
                         <div>
-                          <h3 className="text-xl sm:text-2xl font-bold font-serif text-white tracking-tight leading-tight drop-shadow-sm">
+                          <h3 className="text-3xl sm:text-2xl font-bold font-serif text-white tracking-tight leading-none drop-shadow-md">
                             {item.name}
                           </h3>
-                          <p className="text-[11px] sm:text-xs text-[#E6007E] font-medium font-sans mt-0.5 truncate">
+                          <p className="text-sm sm:text-xs text-[#E6007E] font-semibold font-sans mt-1">
                             {item.colorName}
                           </p>
                         </div>
 
-                        <p className="text-[9.5px] sm:text-xs text-white/80 font-sans line-clamp-2 leading-relaxed">
+                        <p className="text-xs sm:text-xs text-white/90 font-sans line-clamp-3 sm:line-clamp-2 leading-relaxed">
                           {item.description}
                         </p>
 
                         {/* Stem Length Badges (NO PRICES!) */}
                         <div className="pt-1">
-                          <span className="text-[7.5px] sm:text-[8.5px] font-bold uppercase tracking-wider text-white/70 block mb-1 flex items-center gap-1">
-                            <Ruler className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#E6007E]" />
+                          <span className="text-xs sm:text-[8.5px] font-bold uppercase tracking-wider text-white/80 block mb-1.5 flex items-center gap-1.5">
+                            <Ruler className="w-3.5 h-3.5 sm:w-3 sm:h-3 text-[#E6007E]" />
                             Tallos Disponibles:
                           </span>
-                          <div className="flex items-center gap-1 flex-wrap">
+                          <div className="flex items-center gap-1.5 sm:gap-1 flex-wrap">
                             {item.stemList.map((len) => (
                               <span
                                 key={len}
-                                className="bg-white/15 border border-white/20 text-white text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded-md"
+                                className="bg-white/20 border border-white/25 text-white text-xs sm:text-[9px] font-bold px-2.5 py-1 sm:px-1.5 sm:py-0.5 rounded-lg sm:rounded-md shadow-xs"
                               >
                                 {len}cm
                               </span>
@@ -562,10 +564,10 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
                       </div>
 
                       {/* Bottom Footer: Vase Life & Direct Quote Button */}
-                      <div className="pt-2 sm:pt-2.5 border-t border-white/15 flex items-center justify-between shrink-0">
+                      <div className="pt-3 sm:pt-2.5 border-t border-white/20 flex items-center justify-between shrink-0">
                         <div>
-                          <span className="text-xs sm:text-sm font-bold text-white font-serif">{item.vaseLife}</span>
-                          <span className="text-[7px] sm:text-[8px] text-white/60 block uppercase tracking-wider font-semibold">
+                          <span className="text-base sm:text-sm font-bold text-white font-serif">{item.vaseLife}</span>
+                          <span className="text-[9px] sm:text-[8px] text-white/70 block uppercase tracking-wider font-semibold">
                             En Florero
                           </span>
                         </div>
@@ -576,10 +578,10 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
                             e.stopPropagation();
                             onSelectVarietyForQuote(item.name);
                           }}
-                          className="bg-[#E6007E] hover:bg-[#C4006B] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[9.5px] sm:text-[11px] font-bold transition-all duration-300 flex items-center space-x-1.5 shadow-lg group/btn cursor-pointer"
+                          className="bg-[#E6007E] hover:bg-[#C4006B] text-white px-5 py-2.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-[11px] font-bold transition-all duration-300 flex items-center space-x-2 shadow-lg group/btn cursor-pointer active:scale-95"
                         >
                           <span>Cotizar</span>
-                          <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
+                          <ArrowRight className="h-3.5 w-3.5 sm:h-3.5 sm:w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
                         </button>
                       </div>
                     </div>
