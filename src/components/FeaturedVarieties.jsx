@@ -8,13 +8,17 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [activeCardId, setActiveCardId] = useState(null);
   const filterDropdownRef = useRef(null);
 
-  // Close filter dropdown on click outside
+  // Close filter dropdown and active touch card on click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (filterDropdownRef.current && !filterDropdownRef.current.contains(event.target)) {
         setIsFilterOpen(false);
+      }
+      if (!event.target.closest('.rose-catalog-card')) {
+        setActiveCardId(null);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -447,183 +451,133 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
         ) : (
           /* 📱 MOBILE: 2-Column Vertical Grid / 💻 DESKTOP: 4-Col Grid */
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 min-h-[300px]">
-            {paginatedVarieties.map((item, index) => (
-              <AnimateIn key={item.id} animation="fade-up" delay={(index % 4) * 80} duration={500} className="w-full">
-                <div
-                  onClick={() => onSelectVarietyForQuote(item.name)}
-                  className="group relative w-full h-[290px] sm:h-auto sm:aspect-square overflow-hidden rounded-2xl border border-gray-800/20 bg-[#0A0A0A] shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer text-left flex flex-col justify-between"
-                >
-                  {/* Background Image with Zoom Effect on Hover */}
-                  <picture>
-                    <source srcSet={item.image.replace('.webp', '.avif')} type="image/avif" />
-                    <source srcSet={item.image} type="image/webp" />
-                    <img
-                      src={item.image}
-                      alt={`Rosa ${item.name} Jossy Roses`}
-                      width="800"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-                    />
-                  </picture>
+            {paginatedVarieties.map((item, index) => {
+              const isActive = activeCardId === item.id;
 
-                  {/* Soft Gradient Overlay for Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none group-hover:opacity-0 transition-opacity duration-500"></div>
+              return (
+                <AnimateIn key={item.id} animation="fade-up" delay={(index % 4) * 80} duration={500} className="w-full">
+                  <div
+                    onClick={() => {
+                      if (isActive) {
+                        onSelectVarietyForQuote(item.name);
+                      } else {
+                        setActiveCardId(item.id);
+                      }
+                    }}
+                    className={`rose-catalog-card group relative w-full h-[270px] sm:h-auto sm:aspect-square overflow-hidden rounded-2xl sm:rounded-3xl border bg-[#0F050A] shadow-md transition-all duration-500 ease-out hover:shadow-2xl cursor-pointer text-left ${
+                      isActive
+                        ? 'border-[#E6007E] ring-2 ring-[#E6007E]/40'
+                        : 'border-[#E6007E]/15 hover:border-[#E6007E]'
+                    }`}
+                  >
+                    {/* 🌹 100% PURE REAL ROSE PHOTO (NO TEXT, NO LETTERS, NO OVERLAYS BY DEFAULT) */}
+                    <picture className="absolute inset-0 w-full h-full">
+                      <source srcSet={item.image.replace('.webp', '.avif')} type="image/avif" />
+                      <source srcSet={item.image} type="image/webp" />
+                      <img
+                        src={item.image}
+                        alt={`Rosa ${item.name} Jossy Roses`}
+                        width="800"
+                        height="800"
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                      />
+                    </picture>
 
-                  {/* Top Row: Mandala Logo + Best Seller / Rosa Real Badge */}
-                  <div className="relative z-10 flex items-start justify-between p-3 sm:p-4">
-                    <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/50 bg-black/40 backdrop-blur-md shadow-md">
-                      <FlowerMandala className="h-3.5 w-3.5 sm:h-4.5 sm:w-4.5" color="#FFFFFF" spin={true} />
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                      {item.bestseller ? (
-                        <span className="bg-[#E6007E] text-white text-[7px] sm:text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-md border border-white/20">
-                          Best Seller
-                        </span>
-                      ) : (
-                        <span className="bg-black/60 backdrop-blur-xs text-white/90 text-[7px] sm:text-[8px] font-semibold uppercase tracking-wider px-2 py-0.5 sm:px-2 sm:py-0.5 rounded-full border border-white/20">
-                          Rosa Real
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* 📱 MOBILE VIEW: Clean Title + Color + Stem Lengths + Cotizar Button */}
-                  <div className="sm:hidden relative z-10 p-3 space-y-1.5">
-                    <div>
-                      <h3 className="text-base font-bold font-serif text-white tracking-tight leading-tight drop-shadow-sm">
-                        {item.name}
-                      </h3>
-                      <p className="text-[10px] text-white/90 font-sans mt-0.5 font-medium leading-tight line-clamp-1">
-                        {item.colorName}
-                      </p>
-                    </div>
-
-                    {/* Stem Lengths Badges */}
-                    <div className="flex items-center gap-1 flex-wrap">
-                      <span className="bg-white/20 backdrop-blur-xs text-white text-[8px] font-bold px-1.5 py-0.5 rounded-sm border border-white/20">
-                        50-90 cm
-                      </span>
-                      <span className="text-[8px] text-white/80 font-sans">
-                        • {item.vaseLife}
-                      </span>
-                    </div>
-
-                    <div className="pt-0.5 flex items-center justify-between">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onSelectVarietyForQuote(item.name);
-                        }}
-                        className="w-full bg-[#E6007E] text-white py-1.5 px-3 rounded-full text-[10px] font-bold flex items-center justify-center space-x-1.5 shadow-md cursor-pointer hover:bg-[#C4006B] transition-colors"
-                      >
-                        <span>Cotizar Tallo</span>
-                        <ArrowRight className="h-3 w-3" />
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* 💻 DESKTOP VIEW: Default State Title + Stem Lengths List (visible when NOT hovering) */}
-                  <div className="hidden sm:block relative z-10 p-5 transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
-                    <h3 className="text-2xl font-bold font-serif text-white tracking-tight leading-tight">
-                      {item.name}
-                    </h3>
-                    <p className="text-[11px] text-white/90 font-sans mt-0.5 font-medium">
-                      {item.colorName}
-                    </p>
-
-                    {/* Stem Lengths Badges on Card */}
-                    <div className="mt-2 pt-2 border-t border-white/20">
-                      <div className="flex items-center space-x-1 text-[9px] uppercase tracking-wider text-white/80 font-semibold mb-1">
-                        <Ruler className="w-3 h-3 text-[#E6007E]" />
-                        <span>Tallos: 50 · 60 · 70 · 80 · 90 cm</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        {item.stemList.map((len) => (
-                          <span
-                            key={len}
-                            className="bg-white/15 backdrop-blur-xs border border-white/25 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm"
-                          >
-                            {len}cm
+                    {/* 🌸 LUXURY HOVER (Desktop) & ONE-TOUCH (Mobile) OVERLAY */}
+                    <div
+                      className={`absolute inset-0 w-full h-full p-3 sm:p-5 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/85 to-[#0A0A0A]/60 backdrop-blur-md transition-all duration-400 ease-in-out z-20 flex flex-col justify-between ${
+                        isActive
+                          ? 'opacity-100 pointer-events-auto translate-y-0'
+                          : 'opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto translate-y-2 group-hover:translate-y-0'
+                      }`}
+                    >
+                      {/* Top Header inside overlay: Mandala + Real Rose Tag + Close Button */}
+                      <div className="flex items-center justify-between pb-1.5 sm:pb-2 border-b border-white/15">
+                        <div className="flex items-center space-x-1.5 sm:space-x-2">
+                          <FlowerMandala className="w-4 h-4 sm:w-5 sm:h-5" color="#E6007E" spin={true} />
+                          <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[#E6007E] bg-[#E6007E]/10 px-2 py-0.5 rounded-full border border-[#E6007E]/20">
+                            Rosa Real
                           </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                        </div>
 
-                  {/* 💻 DESKTOP VIEW: Full Hover Overlay */}
-                  <div className="hidden sm:flex absolute inset-0 w-full h-full p-5 bg-[#0A0A0A]/80 backdrop-blur-md border border-[#E6007E]/30 opacity-0 group-hover:opacity-100 transition-all duration-400 ease-in-out z-20 flex-col justify-between">
-                    <div>
-                      <div className="flex items-center justify-between pb-2 border-b border-white/15">
+                        {/* Close button for touch devices */}
+                        {isActive && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveCardId(null);
+                            }}
+                            className="sm:hidden w-6 h-6 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                            title="Cerrar detalles"
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Center Info: Name, Color, Description & Stem Lengths */}
+                      <div className="space-y-1 sm:space-y-2 my-auto">
                         <div>
-                          <h3 className="text-2xl font-bold font-serif text-[#E6007E] tracking-tight leading-tight">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-white tracking-tight leading-tight drop-shadow-sm">
                             {item.name}
                           </h3>
-                          <p className="text-[11px] text-white/90 font-sans mt-0.5 font-medium">
+                          <p className="text-[11px] sm:text-xs text-[#E6007E] font-medium font-sans mt-0.5">
                             {item.colorName}
                           </p>
                         </div>
-                        <span className="text-[9px] font-bold bg-[#E6007E]/20 text-[#E6007E] px-2 py-0.5 rounded-full border border-[#E6007E]/30">
-                          Rosa Real
-                        </span>
-                      </div>
 
-                      {/* Stem Lengths Selector / Info */}
-                      <div className="mt-3">
-                        <span className="text-[9px] tracking-widest uppercase text-gray-300 font-sans font-semibold block mb-1.5 flex items-center gap-1">
-                          <Ruler className="w-3 h-3 text-[#E6007E]" />
-                          Longitud de Tallo Disponible:
-                        </span>
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          {item.stemList.map((len) => (
-                            <span
-                              key={len}
-                              className="bg-white/10 hover:bg-[#E6007E]/30 border border-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-md transition-colors"
-                            >
-                              {len} cm
-                            </span>
-                          ))}
+                        <p className="text-[9.5px] sm:text-xs text-white/80 font-sans line-clamp-2 leading-relaxed hidden sm:block">
+                          {item.description}
+                        </p>
+
+                        {/* Stem Length Badges (NO PRICES!) */}
+                        <div className="pt-1 sm:pt-2">
+                          <span className="text-[7.5px] sm:text-[9px] font-bold uppercase tracking-widest text-white/70 block mb-1 flex items-center gap-1">
+                            <Ruler className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#E6007E]" />
+                            Tallos Disponibles:
+                          </span>
+                          <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap">
+                            {item.stemList.map((len) => (
+                              <span
+                                key={len}
+                                className="bg-white/15 border border-white/20 text-white text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-md"
+                              >
+                                {len}cm
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
 
-                      {/* Overview */}
-                      <div className="mt-3 pt-2 border-t border-white/10">
-                        <span className="text-[9px] tracking-widest uppercase text-[#E6007E] font-sans font-semibold block">
-                          Calidad de Exportación
-                        </span>
-                        <p className="text-[11px] text-white/90 leading-relaxed font-sans mt-1 line-clamp-3">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
+                      {/* Bottom Footer: Vase Life & Direct Quote Button */}
+                      <div className="pt-1.5 sm:pt-3 border-t border-white/15 flex items-center justify-between">
+                        <div>
+                          <span className="text-xs sm:text-sm font-bold text-white font-serif">{item.vaseLife}</span>
+                          <span className="text-[7px] sm:text-[8px] text-white/60 block uppercase tracking-wider font-semibold">
+                            En Florero
+                          </span>
+                        </div>
 
-                    {/* Footer Row: Vase Life & Cotizar Action */}
-                    <div className="flex items-center justify-between pt-3 border-t border-white/15">
-                      <div>
-                        <span className="text-sm font-bold text-white font-serif">{item.vaseLife}</span>
-                        <span className="text-[8px] text-white/70 block uppercase tracking-wider font-semibold">Vida en Florero</span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onSelectVarietyForQuote(item.name);
+                          }}
+                          className="bg-[#E6007E] hover:bg-[#C4006B] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[9.5px] sm:text-[11px] font-bold transition-all duration-300 flex items-center space-x-1.5 shadow-lg group/btn cursor-pointer"
+                        >
+                          <span>Cotizar</span>
+                          <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
+                        </button>
                       </div>
-
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onSelectVarietyForQuote(item.name);
-                        }}
-                        className="bg-[#E6007E] hover:bg-[#C4006B] text-white px-4 py-2 rounded-full text-[11px] font-bold transition-all duration-300 flex items-center space-x-1.5 shadow-lg group/btn cursor-pointer"
-                      >
-                        <span>Cotizar Variedad</span>
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
-                      </button>
                     </div>
                   </div>
-
-                </div>
-              </AnimateIn>
-            ))}
+                </AnimateIn>
+              );
+            })}
           </div>
         )}
 

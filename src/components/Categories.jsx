@@ -1,10 +1,21 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FlowerMandala } from './FlowerMandala';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { AnimateIn } from './AnimateIn';
 
 export const Categories = ({ onOpenQuoteModal }) => {
   const carouselRef = useRef(null);
+  const [activeCardId, setActiveCardId] = useState(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!e.target.closest('.category-rose-card')) {
+        setActiveCardId(null);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
 
   const scroll = (direction) => {
     if (carouselRef.current) {
@@ -202,15 +213,27 @@ export const Categories = ({ onOpenQuoteModal }) => {
             ref={carouselRef}
             className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-none gap-3.5 pb-4 -mx-4 px-4 scroll-pl-4 sm:mx-0 sm:px-0 sm:gap-6"
           >
-            {realRoses.map((item) => (
-              <div key={item.id} className="shrink-0 snap-start w-[200px] sm:w-[270px]">
-                <div
-                  onClick={() => onOpenQuoteModal(item.name)}
-                  className="group relative cursor-pointer bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E6007E]/20 shadow-sm hover:shadow-2xl hover:border-[#E6007E] transition-all duration-300 flex flex-col justify-between text-left w-full h-[310px] sm:h-[400px]"
-                >
-                  {/* Full-Bleed Real Image with Picture Tag */}
-                  <div className="relative h-[210px] sm:h-72 w-full overflow-hidden bg-gray-900 aspect-square">
-                    <picture>
+            {realRoses.map((item) => {
+              const isActive = activeCardId === item.id;
+
+              return (
+                <div key={item.id} className="shrink-0 snap-start w-[190px] sm:w-[260px]">
+                  <div
+                    onClick={() => {
+                      if (isActive) {
+                        onOpenQuoteModal(item.name);
+                      } else {
+                        setActiveCardId(item.id);
+                      }
+                    }}
+                    className={`category-rose-card group relative cursor-pointer bg-[#0F050A] rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between text-left w-full h-[270px] sm:h-[350px] ${
+                      isActive
+                        ? 'border-[#E6007E] ring-2 ring-[#E6007E]/40'
+                        : 'border-[#E6007E]/20 hover:border-[#E6007E]'
+                    }`}
+                  >
+                    {/* 🌹 100% PURE REAL ROSE PHOTO (NO LETTERS / NO OVERLAYS BY DEFAULT) */}
+                    <picture className="absolute inset-0 w-full h-full">
                       <source srcSet={item.image.replace('.webp', '.avif')} type="image/avif" />
                       <source srcSet={item.image} type="image/webp" />
                       <img
@@ -223,85 +246,81 @@ export const Categories = ({ onOpenQuoteModal }) => {
                         className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
                       />
                     </picture>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent opacity-70 group-hover:opacity-30 transition-opacity pointer-events-none" />
 
-                    {/* Top Specs Badge */}
-                    <div className="absolute top-2.5 left-2.5 sm:top-3.5 sm:left-3.5 flex items-center gap-1.5 z-10">
-                      <span className="bg-[#0A0A0A]/95 text-white text-[7.5px] sm:text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow border border-white/20">
-                        {item.specs}
-                      </span>
-                    </div>
-
-                    <span className="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 bg-[#E6007E] text-white text-[7px] sm:text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full shadow border border-white/20 z-10">
-                      {item.colorBadge}
-                    </span>
-                  </div>
-
-                  {/* Bottom Card Content */}
-                  <div className="p-3 sm:p-5 flex items-center justify-between bg-white z-10 flex-1">
-                    <div className="min-w-0 pr-1">
-                      <h3 className="font-serif font-bold text-sm sm:text-lg text-[#0A0A0A] group-hover:text-[#E6007E] transition-colors leading-tight line-clamp-1">
-                        {item.name}
-                      </h3>
-                      <span className="text-[9.5px] sm:text-xs text-gray-500 font-sans block mt-0.5 font-medium truncate">
-                        {item.subtitle}
-                      </span>
-                    </div>
-
-                    <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-[#E6007E] text-white flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-[#0A0A0A] transition-all shrink-0">
-                      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    </div>
-                  </div>
-
-                  {/* Corner Visual Accents */}
-                  <div className="absolute top-0 right-0 w-[20%] h-[20%] group-hover:w-full group-hover:h-full rounded-tr-2xl sm:rounded-tr-3xl rounded-bl-[100%] group-hover:rounded-2xl sm:group-hover:rounded-3xl transition-all duration-500 ease-in-out overflow-hidden z-20 pointer-events-none bg-[#E6007E]/20 border-b border-l border-[#E6007E]/30 group-hover:border-none opacity-80 group-hover:opacity-0" />
-
-                  {/* Detailed Hover Overlay */}
-                  <div className="absolute bottom-0 left-0 w-[20%] h-[20%] group-hover:w-full group-hover:h-full rounded-bl-2xl sm:rounded-bl-3xl rounded-tr-[100%] group-hover:rounded-2xl sm:group-hover:rounded-3xl transition-all duration-500 ease-in-out overflow-hidden z-30 opacity-0 invisible group-hover:opacity-100 group-hover:visible shadow-2xl flex flex-col justify-between p-3 sm:p-6 bg-[#0A0A0A] pointer-events-none group-hover:pointer-events-auto">
-                    <picture className="absolute inset-0 w-full h-full">
-                      <source srcSet={item.image.replace('.webp', '.avif')} type="image/avif" />
-                      <source srcSet={item.image} type="image/webp" />
-                      <img
-                        src={item.image}
-                        alt={`${item.name} vista detallada`}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
-                      />
-                    </picture>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/50 to-black/40" />
-
-                    {/* Top Header Badge on Hover Image (NO PRECIOS) */}
-                    <div className="relative z-10 flex items-center justify-between">
-                      <span className="bg-[#E6007E] text-white text-[8px] sm:text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow border border-white/20">
-                        ROSA 100% REAL • EXPORTACIÓN
-                      </span>
-                      <FlowerMandala className="w-5 h-5" color="#FFFFFF" spin={true} />
-                    </div>
-
-                    {/* Bottom Hover Content */}
-                    <div className="relative z-10 text-left space-y-1">
-                      <h3 className="font-serif font-bold text-lg sm:text-xl text-white tracking-wide leading-tight">
-                        {item.name}
-                      </h3>
-                      <p className="text-[11px] text-pink-200 font-sans font-medium">
-                        {item.subtitle} • {item.vaseLife}
-                      </p>
-                      <p className="text-[10px] text-white/85 font-sans line-clamp-2 leading-relaxed hidden sm:block">
-                        {item.description}
-                      </p>
-                      <div className="pt-2 flex items-center space-x-2 text-white text-xs font-bold uppercase tracking-wider">
-                        <span>Cotizar Tallo</span>
-                        <div className="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center">
-                          <ArrowRight className="w-3.5 h-3.5 text-white" />
+                    {/* 🌸 LUXURY OVERLAY (Revealed ONLY on mouse hover or on phone tap) */}
+                    <div
+                      className={`absolute inset-0 w-full h-full p-3.5 sm:p-5 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/85 to-[#0A0A0A]/60 backdrop-blur-md transition-all duration-400 ease-in-out z-20 flex flex-col justify-between ${
+                        isActive
+                          ? 'opacity-100 pointer-events-auto translate-y-0'
+                          : 'opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto translate-y-2 group-hover:translate-y-0'
+                      }`}
+                    >
+                      {/* Top Row: Mandala + Category Tag + Close Button on Mobile */}
+                      <div className="flex items-center justify-between pb-1.5 border-b border-white/15">
+                        <div className="flex items-center space-x-1.5">
+                          <FlowerMandala className="w-4 h-4" color="#E6007E" spin={true} />
+                          <span className="bg-[#E6007E]/20 text-[#E6007E] text-[8px] sm:text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-[#E6007E]/30">
+                            {item.colorBadge}
+                          </span>
                         </div>
+
+                        {isActive && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveCardId(null);
+                            }}
+                            className="sm:hidden w-6 h-6 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                            title="Cerrar detalles"
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Center Content: Name, Subtitle, Description & Lengths */}
+                      <div className="space-y-1 my-auto">
+                        <h3 className="font-serif font-bold text-xl sm:text-2xl text-white tracking-tight leading-tight">
+                          {item.name}
+                        </h3>
+                        <p className="text-[11px] sm:text-xs text-[#E6007E] font-sans font-medium">
+                          {item.subtitle}
+                        </p>
+                        <p className="text-[9.5px] sm:text-[10.5px] text-white/80 font-sans line-clamp-2 leading-relaxed pt-0.5">
+                          {item.description}
+                        </p>
+                        <div className="pt-1.5">
+                          <span className="text-[8px] sm:text-[9px] text-white/90 font-sans font-semibold bg-white/10 px-2 py-0.5 rounded-md border border-white/15 inline-block">
+                            {item.specs}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Bottom Footer Action */}
+                      <div className="pt-2 border-t border-white/15 flex items-center justify-between">
+                        <div>
+                          <span className="text-xs sm:text-sm font-bold text-white font-serif">{item.vaseLife}</span>
+                          <span className="text-[7px] text-white/60 block uppercase tracking-wider font-semibold">Florero</span>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onOpenQuoteModal(item.name);
+                          }}
+                          className="bg-[#E6007E] hover:bg-[#C4006B] text-white px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-[10px] sm:text-[11px] font-bold flex items-center space-x-1.5 shadow-md cursor-pointer transition-all"
+                        >
+                          <span>Cotizar</span>
+                          <ArrowRight className="w-3 h-3 text-white" />
+                        </button>
                       </div>
                     </div>
                   </div>
-
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </AnimateIn>
 
