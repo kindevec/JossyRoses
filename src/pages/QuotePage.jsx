@@ -68,20 +68,28 @@ export const QuotePage = () => {
       return;
     }
 
-    const mensaje = `*Hola Jossy Roses, solicito Lista de Precios y Cotización:*
-
-👤 *Nombre:* ${sanitizedName}
-🏢 *Empresa:* ${sanitizedCompany || 'N/A'}
-📧 *Correo:* ${sanitizedEmail}
-📱 *Teléfono:* ${sanitizedPhone}
-📍 *Destino/País:* ${sanitizedCountry || 'N/A'}
-
-🌸 *Variedad:* ${formData.variety}
-📏 *Longitud:* ${formData.stemLength}
-📦 *Volumen:* ${formData.estimatedBoxes}
-
-💬 *Comentarios:*
-${sanitizedComments || 'N/A'}`;
+    const mensaje = [
+      '*JOSSY ROSES | SOLICITUD DE COTIZACIÓN*',
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━',
+      '',
+      '*DATOS DEL CLIENTE*',
+      `• *Nombre:* ${sanitizedName}`,
+      `• *Empresa:* ${sanitizedCompany || 'No especificada'}`,
+      `• *Correo:* ${sanitizedEmail}`,
+      `• *Teléfono:* ${sanitizedPhone}`,
+      `• *Destino:* ${sanitizedCountry || 'No especificado'}`,
+      '',
+      '*DETALLE DEL PEDIDO*',
+      `• *Variedad:* ${formData.variety}`,
+      `• *Longitud de tallo:* ${formData.stemLength}`,
+      `• *Volumen estimado:* ${formData.estimatedBoxes}`,
+      '',
+      '*COMENTARIOS O REQUERIMIENTOS:*',
+      `${sanitizedComments || 'Sin comentarios adicionales.'}`,
+      '',
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━',
+      '_Where Quality Counts • Cayambe, Ecuador_'
+    ].join('\n');
 
     window.open(`https://wa.me/593980849061?text=${encodeURIComponent(mensaje)}`, '_blank');
     setSubmitted(true);

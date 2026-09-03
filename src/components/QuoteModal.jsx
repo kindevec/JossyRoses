@@ -68,19 +68,28 @@ export const QuoteModal = ({ isOpen, onClose, selectedVariety = '' }) => {
       return;
     }
 
-    const mensaje = `*Hola Jossy Roses, solicito cotización:*
+    const mensaje = [
+      '*JOSSY ROSES | SOLICITUD DE COTIZACIÓN*',
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━',
+      '',
+      '*DATOS DE CONTACTO*',
+      `• *Nombre:* ${sanitizedName}`,
+      `• *Empresa:* ${sanitizedCompany || 'No especificada'}`,
+      `• *Correo:* ${sanitizedEmail}`,
+      `• *Teléfono:* ${sanitizedPhone}`,
+      '',
+      '*DETALLE DE COTIZACIÓN*',
+      `• *Variedad:* ${formData.variety}`,
+      `• *Longitud de tallo:* ${formData.stemLength}`,
+      `• *Volumen estimado:* ${formData.estimatedBoxes}`,
+      '',
+      '*COMENTARIOS O REQUERIMIENTOS:*',
+      `${sanitizedComments || 'Sin comentarios adicionales.'}`,
+      '',
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━',
+      '_Where Quality Counts • Cayambe, Ecuador_'
+    ].join('\n');
 
-👤 *Nombre:* ${sanitizedName}
-🏢 *Empresa:* ${sanitizedCompany || 'N/A'}
-📧 *Correo:* ${sanitizedEmail}
-📱 *Teléfono:* ${sanitizedPhone}
-
-🌸 *Variedad:* ${formData.variety}
-📏 *Longitud:* ${formData.stemLength}
-📦 *Volumen:* ${formData.estimatedBoxes}
-
-💬 *Comentarios:*
-${sanitizedComments || 'N/A'}`;
     window.open(`https://wa.me/593980849061?text=${encodeURIComponent(mensaje)}`, '_blank');
     setSubmitted(true);
   };
