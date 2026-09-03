@@ -6,6 +6,7 @@ import { AnimateIn } from './AnimateIn';
 export const Categories = ({ onOpenQuoteModal }) => {
   const carouselRef = useRef(null);
   const [activeCardId, setActiveCardId] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
@@ -21,10 +22,24 @@ export const Categories = ({ onOpenQuoteModal }) => {
     };
   }, []);
 
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      const { scrollLeft, clientWidth } = carouselRef.current;
+      const index = Math.round(scrollLeft / (clientWidth || 1));
+      setCurrentIndex(Math.min(Math.max(index, 0), realRoses.length - 1));
+    }
+  };
+
   const scroll = (direction) => {
     if (carouselRef.current) {
-      const scrollAmount = direction === 'left' ? -340 : 340;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+      const scrollAmount = isMobile
+        ? carouselRef.current.clientWidth
+        : 340;
+      carouselRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -194,33 +209,34 @@ export const Categories = ({ onOpenQuoteModal }) => {
           </div>
         </div>
 
-        {/* 13 Real Flowers Horizontal Carousel with Side Floating Arrows (Desktop) */}
+        {/* 13 Real Flowers Horizontal Carousel with Side Floating Arrows */}
         <div className="relative">
-          {/* Floating Left Button (Desktop only) */}
+          {/* Floating Left Button (Visible on both Mobile and Desktop) */}
           <button
             type="button"
             onClick={() => scroll('left')}
-            className="hidden md:flex absolute -left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white text-[#0A0A0A] hover:text-white hover:bg-[#E6007E] border border-gray-200 hover:border-[#E6007E] items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
+            className="flex absolute left-2 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-white/95 sm:bg-white text-[#0A0A0A] hover:text-white hover:bg-[#E6007E] border border-gray-200 hover:border-[#E6007E] items-center justify-center shadow-lg hover:shadow-2xl hover:scale-110 active:scale-90 transition-all duration-300 cursor-pointer backdrop-blur-xs"
             title="Variedades anteriores"
             aria-label="Desplazar a la izquierda"
           >
-            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
           </button>
 
-          {/* Floating Right Button (Desktop only) */}
+          {/* Floating Right Button (Visible on both Mobile and Desktop) */}
           <button
             type="button"
             onClick={() => scroll('right')}
-            className="hidden md:flex absolute -right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white text-[#0A0A0A] hover:text-white hover:bg-[#E6007E] border border-gray-200 hover:border-[#E6007E] items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
+            className="flex absolute right-2 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-white/95 sm:bg-white text-[#0A0A0A] hover:text-white hover:bg-[#E6007E] border border-gray-200 hover:border-[#E6007E] items-center justify-center shadow-lg hover:shadow-2xl hover:scale-110 active:scale-90 transition-all duration-300 cursor-pointer backdrop-blur-xs"
             title="Variedades siguientes"
             aria-label="Desplazar a la derecha"
           >
-            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
           </button>
 
           <AnimateIn animation="fade-up" duration={700}>
             <div
               ref={carouselRef}
+              onScroll={handleScroll}
               className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-none gap-4 pb-4 sm:gap-6 scroll-smooth"
             >
             {realRoses.map((item) => {
@@ -336,6 +352,41 @@ export const Categories = ({ onOpenQuoteModal }) => {
             })}
           </div>
         </AnimateIn>
+
+        {/* 📱 Referencia de Paginación y Contador de Variedades en Móvil */}
+        <div className="flex items-center justify-between pt-3 pb-1 px-1 sm:hidden">
+          {/* Contador Activo y Nombre de Variedad */}
+          <div className="flex items-center space-x-2">
+            <span className="font-bold text-[11px] bg-[#E6007E]/10 text-[#E6007E] px-2.5 py-0.5 rounded-full border border-[#E6007E]/20">
+              {currentIndex + 1} / {realRoses.length}
+            </span>
+            <span className="text-gray-800 font-serif font-bold text-xs truncate max-w-[130px]">
+              {realRoses[currentIndex]?.name}
+            </span>
+          </div>
+
+          {/* Puntos de Navegación Interactivos (Mini dots) */}
+          <div className="flex items-center space-x-1">
+            {realRoses.map((rose, idx) => (
+              <button
+                key={rose.id}
+                type="button"
+                onClick={() => {
+                  if (carouselRef.current) {
+                    const cardWidth = carouselRef.current.clientWidth;
+                    carouselRef.current.scrollTo({ left: cardWidth * idx, behavior: 'smooth' });
+                    setCurrentIndex(idx);
+                  }
+                }}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  currentIndex === idx ? 'w-5 bg-[#E6007E]' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Ir a variedad ${rose.name}`}
+                title={`Ver ${rose.name}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
       </div>
