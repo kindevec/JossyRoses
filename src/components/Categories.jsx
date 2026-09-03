@@ -221,13 +221,13 @@ export const Categories = ({ onOpenQuoteModal }) => {
           <AnimateIn animation="fade-up" duration={700}>
             <div
               ref={carouselRef}
-              className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-none gap-3.5 pb-4 -mx-4 px-4 scroll-pl-4 sm:mx-0 sm:px-0 sm:gap-6 scroll-smooth"
+              className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-none gap-4 pb-4 sm:gap-6 scroll-smooth"
             >
             {realRoses.map((item) => {
               const isActive = activeCardId === item.id;
 
               return (
-                <div key={item.id} className="shrink-0 snap-start w-[200px] sm:w-[260px]">
+                <div key={item.id} className="shrink-0 snap-center w-full sm:w-[260px]">
                   <div
                     onClick={() => {
                       const isDesktop = typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -237,7 +237,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
                         setActiveCardId(item.id);
                       }
                     }}
-                    className={`category-rose-card group relative cursor-pointer bg-[#0F050A] rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between text-left w-full h-[310px] sm:h-[370px] ${
+                    className={`category-rose-card group relative cursor-pointer bg-[#0F050A] rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between text-left w-full h-[340px] sm:h-[370px] ${
                       isActive
                         ? 'border-[#E6007E] ring-2 ring-[#E6007E]/40'
                         : 'border-[#E6007E]/20 hover:border-[#E6007E]'

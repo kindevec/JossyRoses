@@ -52,10 +52,10 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
     <section className="pt-3 pb-8 sm:py-14 bg-[#FDF3F6] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
-        {/* 4 Banner Cards Grid - 2x2 Asymmetrical on Mobile / 4-Col Grid on Desktop */}
-        <div className="grid grid-cols-12 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
+        {/* 4 Banner Cards Grid - 1 Card per Row on Mobile / 4-Col Grid on Desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {mobileOrderedCards.map((card, index) => {
-            const spanClass = `${card.mobileSpan} sm:col-span-1`;
+            const spanClass = "col-span-1";
             const desktopAnimation = ['fade-right', 'fade-up', 'fade-up', 'fade-left'][index];
 
             if (card.type === 'framed-offer') {
@@ -63,7 +63,7 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
                 <AnimateIn key={card.id} animation={desktopAnimation} delay={index * 150} duration={700} className={spanClass}>
                   <div
                     onClick={() => onOpenQuoteModal && onOpenQuoteModal(card.offerText)}
-                    className="group relative h-44 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl w-full"
+                    className="group relative h-52 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl w-full"
                   >
                     {/* Background Image */}
                     <picture>
@@ -108,7 +108,7 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
               <AnimateIn key={card.id} animation={desktopAnimation} delay={index * 150} duration={700} className={spanClass}>
                 <div
                   onClick={() => onOpenQuoteModal && onOpenQuoteModal(card.title)}
-                  className="group relative h-44 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl bg-white w-full"
+                  className="group relative h-52 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl bg-white w-full"
                 >
                   {/* Background Image */}
                   <picture>

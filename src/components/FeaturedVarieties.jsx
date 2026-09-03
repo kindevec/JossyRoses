@@ -453,8 +453,8 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
             </button>
           </div>
         ) : (
-          /* 📱 MOBILE: 2-Column Vertical Grid / 💻 DESKTOP: 4-Col Grid */
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 min-h-[300px]">
+          /* 📱 MOBILE: 1-Column Full-Width Cards / 💻 DESKTOP: 4-Col Grid */
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 min-h-[300px]">
             {paginatedVarieties.map((item, index) => {
               const isActive = activeCardId === item.id;
 
@@ -469,7 +469,7 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
                         setActiveCardId(item.id);
                       }
                     }}
-                    className={`rose-catalog-card group relative w-full h-[320px] sm:h-[370px] lg:h-[390px] overflow-hidden rounded-2xl sm:rounded-3xl border bg-[#0F050A] shadow-md transition-all duration-500 ease-out hover:shadow-2xl cursor-pointer text-left ${
+                    className={`rose-catalog-card group relative w-full h-[340px] sm:h-[370px] lg:h-[390px] overflow-hidden rounded-2xl sm:rounded-3xl border bg-[#0F050A] shadow-md transition-all duration-500 ease-out hover:shadow-2xl cursor-pointer text-left ${
                       isActive
                         ? 'border-[#E6007E] ring-2 ring-[#E6007E]/40'
                         : 'border-[#E6007E]/15 hover:border-[#E6007E]'
