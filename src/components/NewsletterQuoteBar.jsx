@@ -4,46 +4,46 @@ import { AnimateIn } from './AnimateIn';
 
 export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
   const mobileOrderedCards = [
-    // Row 1 (Top): 25% Offer (1/3 width) + Rosas Tinturadas (2/3 width)
+    // Row 1 (Top): Freedom (1/3 width) + White O'Hara (2/3 width)
     {
       id: 2,
       type: 'framed-offer',
-      image: '/images/banner_card_2.webp',
-      topText: "Happy Flower's",
-      offerText: '25% OFF',
-      subBadge: 'Temporada Alta',
+      image: '/images/roses/freedom.webp',
+      topText: "Jossy Roses",
+      offerText: 'FREEDOM',
+      subBadge: 'Rojo Exportación',
       action: 'Cotizar',
       mobileSpan: 'col-span-4',
     },
     {
       id: 1,
       type: 'collection',
-      image: '/images/banner_card_1.webp',
-      subtitle: 'From $0.45 / stem',
-      title: 'NUEVA COLECCIÓN',
-      badge: 'Rosas Tinturadas',
+      image: '/images/roses/white-ohara.webp',
+      subtitle: 'Tallos 50 - 90 cm • Aroma Natural',
+      title: "WHITE O'HARA",
+      badge: 'Rosa de Jardín',
       align: 'bottom-right',
       mobileSpan: 'col-span-8',
     },
-    // Row 2 (Bottom): Garden Roses (2/3 width) + 25% Offer Volúmenes (1/3 width)
+    // Row 2 (Bottom): Pink O'Hara (2/3 width) + Country Blue (1/3 width)
     {
       id: 3,
       type: 'collection',
-      image: '/images/banner_card_3.webp',
-      subtitle: 'From $0.50 / stem',
-      title: 'NEW COLLECTION',
-      badge: 'Garden Roses',
+      image: '/images/roses/pink-ohara.webp',
+      subtitle: 'Tallos 50 - 90 cm • Botón Gigante',
+      title: "PINK O'HARA",
+      badge: 'Jardín Francesa',
       align: 'bottom-right',
       mobileSpan: 'col-span-8',
     },
     {
       id: 4,
       type: 'framed-offer',
-      image: '/images/banner_card_4.webp',
-      topText: "Happy Flower's",
-      offerText: '25% OFF',
-      subBadge: 'Exportación',
-      action: 'Solicitar',
+      image: '/images/roses/country-blue.webp',
+      topText: "Colección Exótica",
+      offerText: 'VINTAGE',
+      subBadge: 'Country Blue',
+      action: 'Cotizar',
       mobileSpan: 'col-span-4',
     },
   ];
