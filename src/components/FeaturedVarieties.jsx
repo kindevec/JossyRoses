@@ -458,7 +458,8 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
                 <AnimateIn key={item.id} animation="fade-up" delay={(index % 4) * 80} duration={500} className="w-full">
                   <div
                     onClick={() => {
-                      if (isActive) {
+                      const isDesktop = typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+                      if (isDesktop || isActive) {
                         onSelectVarietyForQuote(item.name);
                       } else {
                         setActiveCardId(item.id);

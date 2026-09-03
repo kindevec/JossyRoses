@@ -14,7 +14,7 @@ import { WhatsAppIcon } from './components/WhatsAppIcon';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { Mail, MapPin } from 'lucide-react';
 import { AnimateIn } from './components/AnimateIn';
-const QuoteModal = lazy(() => import('./components/QuoteModal').then(module => ({ default: module.QuoteModal })));
+import { QuoteModal } from './components/QuoteModal';
 const QuotePage = lazy(() => import('./pages/QuotePage').then(module => ({ default: module.QuotePage })));
 
 function HomePage() {
@@ -182,16 +182,14 @@ function HomePage() {
         </span>
       </a>
 
-      {/* Interactive Quotation Modal (Lazy Loaded) */}
-      <Suspense fallback={null}>
-        {quoteModalOpen && (
-          <QuoteModal
-            isOpen={quoteModalOpen}
-            onClose={handleCloseQuoteModal}
-            selectedVariety={selectedVariety}
-          />
-        )}
-      </Suspense>
+      {/* Interactive Quotation Modal (Instant Zero-Delay) */}
+      {quoteModalOpen && (
+        <QuoteModal
+          isOpen={quoteModalOpen}
+          onClose={handleCloseQuoteModal}
+          selectedVariety={selectedVariety}
+        />
+      )}
 
       {/* Mobile Bottom Navigation */}
       <MobileBottomNav />

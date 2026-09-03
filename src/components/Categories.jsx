@@ -226,7 +226,8 @@ export const Categories = ({ onOpenQuoteModal }) => {
                 <div key={item.id} className="shrink-0 snap-start w-[190px] sm:w-[260px]">
                   <div
                     onClick={() => {
-                      if (isActive) {
+                      const isDesktop = typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+                      if (isDesktop || isActive) {
                         onOpenQuoteModal(item.name);
                       } else {
                         setActiveCardId(item.id);
