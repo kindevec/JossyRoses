@@ -22,7 +22,11 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside, { passive: true });
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
   // 13 Rosas Reales de Cultivo Propio Jossy Roses
