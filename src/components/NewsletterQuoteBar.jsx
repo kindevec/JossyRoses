@@ -4,46 +4,46 @@ import { AnimateIn } from './AnimateIn';
 
 export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
   const mobileOrderedCards = [
-    // Row 1 (Top): Freedom (1/3 width) + White O'Hara (2/3 width)
+    // Row 1 (Top): 25% Offer (1/3 width) + Rosas Tinturadas (2/3 width)
     {
       id: 2,
       type: 'framed-offer',
-      image: '/images/roses/freedom.webp',
-      topText: "Jossy Roses",
-      offerText: 'FREEDOM',
-      subBadge: 'Rojo Exportación',
+      image: '/images/banner_card_2.webp',
+      topText: "Happy Flower's",
+      offerText: '25% OFF',
+      subBadge: 'Temporada Alta',
       action: 'Cotizar',
       mobileSpan: 'col-span-4',
     },
     {
       id: 1,
       type: 'collection',
-      image: '/images/roses/white-ohara.webp',
-      subtitle: 'Tallos 50 - 90 cm • Aroma Natural',
-      title: "WHITE O'HARA",
-      badge: 'Rosa de Jardín',
+      image: '/images/banner_card_1.webp',
+      subtitle: 'From $0.45 / stem',
+      title: 'NUEVA COLECCIÓN',
+      badge: 'Rosas Tinturadas',
       align: 'bottom-right',
       mobileSpan: 'col-span-8',
     },
-    // Row 2 (Bottom): Pink O'Hara (2/3 width) + Country Blue (1/3 width)
+    // Row 2 (Bottom): Garden Roses (2/3 width) + 25% Offer Volúmenes (1/3 width)
     {
       id: 3,
       type: 'collection',
-      image: '/images/roses/pink-ohara.webp',
-      subtitle: 'Tallos 50 - 90 cm • Botón Gigante',
-      title: "PINK O'HARA",
-      badge: 'Jardín Francesa',
+      image: '/images/banner_card_3.webp',
+      subtitle: 'From $0.50 / stem',
+      title: 'NEW COLLECTION',
+      badge: 'Garden Roses',
       align: 'bottom-right',
       mobileSpan: 'col-span-8',
     },
     {
       id: 4,
       type: 'framed-offer',
-      image: '/images/roses/country-blue.webp',
-      topText: "Colección Exótica",
-      offerText: 'VINTAGE',
-      subBadge: 'Country Blue',
-      action: 'Cotizar',
+      image: '/images/banner_card_4.webp',
+      topText: "Happy Flower's",
+      offerText: '25% OFF',
+      subBadge: 'Exportación',
+      action: 'Solicitar',
       mobileSpan: 'col-span-4',
     },
   ];
@@ -52,10 +52,10 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
     <section className="pt-3 pb-8 sm:py-14 bg-[#FDF3F6] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
-        {/* 4 Banner Cards Grid - 1 Card per Row on Mobile / 4-Col Grid on Desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* 4 Banner Cards Grid - 2x2 Asymmetrical on Mobile / 4-Col Grid on Desktop */}
+        <div className="grid grid-cols-12 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
           {mobileOrderedCards.map((card, index) => {
-            const spanClass = "col-span-1";
+            const spanClass = `${card.mobileSpan} sm:col-span-1`;
             const desktopAnimation = ['fade-right', 'fade-up', 'fade-up', 'fade-left'][index];
 
             if (card.type === 'framed-offer') {
@@ -63,7 +63,7 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
                 <AnimateIn key={card.id} animation={desktopAnimation} delay={index * 150} duration={700} className={spanClass}>
                   <div
                     onClick={() => onOpenQuoteModal && onOpenQuoteModal(card.offerText)}
-                    className="group relative h-52 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl w-full"
+                    className="group relative h-44 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl w-full"
                   >
                     {/* Background Image */}
                     <picture>
@@ -108,12 +108,12 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
               <AnimateIn key={card.id} animation={desktopAnimation} delay={index * 150} duration={700} className={spanClass}>
                 <div
                   onClick={() => onOpenQuoteModal && onOpenQuoteModal(card.title)}
-                  className="group relative h-52 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl bg-white w-full"
+                  className="group relative h-44 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#E6007E]/15 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl bg-white w-full"
                 >
                   {/* Background Image */}
                   <picture>
-                    <source srcSet={card.image.replace('.jpg', '.avif')} type="image/avif" />
-                    <source srcSet={card.image.replace('.jpg', '.webp')} type="image/webp" />
+                    <source srcSet={card.image.replace('.webp', '.avif')} type="image/avif" />
+                    <source srcSet={card.image} type="image/webp" />
                     <img
                       src={card.image}
                       alt={card.title}
