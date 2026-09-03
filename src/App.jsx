@@ -14,9 +14,8 @@ import { WhatsAppIcon } from './components/WhatsAppIcon';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { Mail, MapPin } from 'lucide-react';
 import { AnimateIn } from './components/AnimateIn';
-import { QuotePage } from './pages/QuotePage';
-
 const QuoteModal = lazy(() => import('./components/QuoteModal').then(module => ({ default: module.QuoteModal })));
+const QuotePage = lazy(() => import('./pages/QuotePage').then(module => ({ default: module.QuotePage })));
 
 function HomePage() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
@@ -203,12 +202,14 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/solicitar-cotizacion" element={<QuotePage />} />
-        <Route path="/lista-de-precios" element={<QuotePage />} />
-        <Route path="/cotizacion" element={<QuotePage />} />
-      </Routes>
+      <Suspense fallback={<div className="min-h-screen bg-[#FAF0F3]" />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/solicitar-cotizacion" element={<QuotePage />} />
+          <Route path="/lista-de-precios" element={<QuotePage />} />
+          <Route path="/cotizacion" element={<QuotePage />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

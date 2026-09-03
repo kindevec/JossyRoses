@@ -237,13 +237,20 @@ ${sanitizedComments || 'N/A'}`;
                   onChange={handleChange}
                   className="w-full px-3 py-2.5 rounded-xl border border-gray-300 focus:border-[#E6007E] focus:ring-1 focus:ring-[#E6007E] outline-none text-sm bg-white"
                 >
-                  <option value="Todas las variedades / Asesoría">Todas las variedades</option>
-                  <option value="Freedom Red">Freedom (Rojo)</option>
-                  <option value="Pink Floyd">Pink Floyd (Magenta)</option>
-                  <option value="Mondial White">Mondial (Blanco)</option>
-                  <option value="Sweet Akito">Sweet Akito (Rosa Pastel)</option>
-                  <option value="High & Magic">High & Magic (Bicolor)</option>
-                  <option value="Spray Roses">Spray Roses (Ramificadas)</option>
+                  <option value="Todas las variedades / Asesoría">Todas las variedades / Asesoría</option>
+                  <option value="Freedom">Freedom (Rojo)</option>
+                  <option value="Explorer">Explorer (Rojo Oscuro)</option>
+                  <option value="Mondial">Mondial (Blanco Marfil)</option>
+                  <option value="Playa Blanca">Playa Blanca (Blanco Nieve)</option>
+                  <option value="White O'Hara">White O'Hara (Jardín Blanco Aromática)</option>
+                  <option value="Swan">Swan (Blanco Seda)</option>
+                  <option value="Pink Mondial">Pink Mondial (Rosa Rubor)</option>
+                  <option value="Pink O'Hara">Pink O'Hara (Jardín Rosa Aromática)</option>
+                  <option value="Hermosa">Hermosa (Rosa Romántico)</option>
+                  <option value="Country Blue">Country Blue (Lavanda Vintage)</option>
+                  <option value="Momentum">Momentum (Amarillo Canario)</option>
+                  <option value="Radiant">Radiant (Amarillo Dorado)</option>
+                  <option value="Melon Expression">Melon Expression (Durazno Melón)</option>
                 </select>
               </div>
 
@@ -261,7 +268,8 @@ ${sanitizedComments || 'N/A'}`;
                   <option value="60 cm">60 cm</option>
                   <option value="70 cm">70 cm</option>
                   <option value="80 cm">80 cm</option>
-                  <option value="Mezclado">Mezclado (Mix Box)</option>
+                  <option value="90 cm">90 cm</option>
+                  <option value="Mezclado">Mezclado (Mix Box 50-90cm)</option>
                 </select>
               </div>
 

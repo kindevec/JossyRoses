@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Sprout, ShieldCheck, Truck, CalendarCheck2 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { AnimateIn } from './AnimateIn';
 
 // Detailed Multi-layered Rose SVG Icon
@@ -117,12 +116,10 @@ export const TrustBar = () => {
               const Icon = item.icon;
               const isActive = activeCard === index;
               return (
-                <motion.div
-                  layout
-                  transition={{ duration: 0.2, ease: [0.25, 1, 0.5, 1] }}
+                <div
                   key={index}
                   onClick={() => { if (window.innerWidth < 640) setActiveCard(isActive ? null : index); }}
-                  className={`group relative h-[58px] sm:w-[175px] sm:h-[175px] py-1.5 px-2 sm:p-3.5 rounded-2xl border shadow-sm sm:shadow-xl sm:hover:shadow-2xl sm:hover:-translate-y-1 flex flex-row sm:flex-col items-center justify-center text-center shrink-0 overflow-hidden cursor-pointer ${
+                  className={`group relative h-[58px] sm:w-[175px] sm:h-[175px] py-1.5 px-2 sm:p-3.5 rounded-2xl border shadow-sm sm:shadow-xl sm:hover:shadow-2xl sm:hover:-translate-y-1 flex flex-row sm:flex-col items-center justify-center text-center shrink-0 overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
                     isActive ? 'max-sm:w-[195px] bg-[#FAF0F3] border-[#E6007E]' : 'max-sm:w-[50px] bg-white/95 border-[#E6007E]/20'
                   } ${bgFilled ? 'bg-[#FAF0F3] border-[#E6007E]/35' : ''}`}
                 >
@@ -163,20 +160,14 @@ export const TrustBar = () => {
 
                   {/* Mobile Expanded Text (Reveals when active) */}
                   {isActive && (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.15 }}
-                      className="sm:hidden text-left pl-2 pr-1 z-20 flex-1 overflow-hidden"
-                    >
+                    <div className="sm:hidden text-left pl-2 pr-1 z-20 flex-1 overflow-hidden transition-opacity duration-200 animate-in fade-in">
                       <h3 className="font-sans text-[10px] font-bold uppercase tracking-wider text-[#0A0A0A] leading-tight line-clamp-1">
                         {item.title}
                       </h3>
                       <p className="text-[9px] font-sans text-gray-600 leading-tight line-clamp-2 mt-0.5">
                         {item.description}
                       </p>
-                    </motion.div>
+                    </div>
                   )}
 
                   {/* Desktop Content Always Visible */}
@@ -188,7 +179,7 @@ export const TrustBar = () => {
                       {item.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

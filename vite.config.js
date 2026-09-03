@@ -13,8 +13,8 @@ export default defineConfig({
             if (id.includes('react') || id.includes('react-dom')) {
               return 'vendor-react';
             }
-            if (id.includes('framer-motion')) {
-              return 'vendor-motion';
+            if (id.includes('react-router')) {
+              return 'vendor-router';
             }
             if (id.includes('lucide-react')) {
               return 'vendor-icons';
