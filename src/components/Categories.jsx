@@ -237,14 +237,14 @@ export const Categories = ({ onOpenQuoteModal }) => {
                         setActiveCardId(item.id);
                       }
                     }}
-                    className={`category-rose-card group relative cursor-pointer bg-[#0F050A] rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between text-left w-full h-[340px] sm:h-[370px] ${
+                    className={`category-rose-card group relative cursor-pointer bg-white sm:bg-[#0F050A] rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between text-left w-full aspect-square sm:aspect-auto sm:h-[370px] ${
                       isActive
                         ? 'border-[#E6007E] ring-2 ring-[#E6007E]/40'
                         : 'border-[#E6007E]/20 hover:border-[#E6007E]'
                     }`}
                   >
                     {/* 🌹 100% PURE REAL ROSE PHOTO (NO LETTERS / NO OVERLAYS BY DEFAULT) */}
-                    <picture className="absolute inset-0 w-full h-full">
+                    <picture className="absolute inset-0 w-full h-full p-2.5 sm:p-0 flex items-center justify-center">
                       <source srcSet={item.image.replace('.webp', '.avif')} type="image/avif" />
                       <source srcSet={item.image} type="image/webp" />
                       <img
@@ -254,7 +254,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
                         height="400"
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-contain sm:object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
                       />
                     </picture>
 

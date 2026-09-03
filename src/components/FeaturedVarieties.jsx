@@ -469,14 +469,14 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
                         setActiveCardId(item.id);
                       }
                     }}
-                    className={`rose-catalog-card group relative w-full h-[340px] sm:h-[370px] lg:h-[390px] overflow-hidden rounded-2xl sm:rounded-3xl border bg-[#0F050A] shadow-md transition-all duration-500 ease-out hover:shadow-2xl cursor-pointer text-left ${
+                    className={`rose-catalog-card group relative w-full aspect-square sm:aspect-auto sm:h-[370px] lg:h-[390px] overflow-hidden rounded-2xl sm:rounded-3xl border bg-white sm:bg-[#0F050A] shadow-md transition-all duration-500 ease-out hover:shadow-2xl cursor-pointer text-left ${
                       isActive
                         ? 'border-[#E6007E] ring-2 ring-[#E6007E]/40'
                         : 'border-[#E6007E]/15 hover:border-[#E6007E]'
                     }`}
                   >
                     {/* 🌹 100% PURE REAL ROSE PHOTO (NO TEXT, NO LETTERS, NO OVERLAYS BY DEFAULT) */}
-                    <picture className="absolute inset-0 w-full h-full">
+                    <picture className="absolute inset-0 w-full h-full p-2.5 sm:p-0 flex items-center justify-center">
                       <source srcSet={item.image.replace('.webp', '.avif')} type="image/avif" />
                       <source srcSet={item.image} type="image/webp" />
                       <img
@@ -486,7 +486,7 @@ export const FeaturedVarieties = ({ onSelectVarietyForQuote }) => {
                         height="800"
                         loading="lazy"
                         decoding="async"
-                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                        className="h-full w-full object-contain sm:object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                       />
                     </picture>
 
