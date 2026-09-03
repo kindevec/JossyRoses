@@ -223,7 +223,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
               const isActive = activeCardId === item.id;
 
               return (
-                <div key={item.id} className="shrink-0 snap-start w-[190px] sm:w-[260px]">
+                <div key={item.id} className="shrink-0 snap-start w-[200px] sm:w-[260px]">
                   <div
                     onClick={() => {
                       const isDesktop = typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -233,7 +233,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
                         setActiveCardId(item.id);
                       }
                     }}
-                    className={`category-rose-card group relative cursor-pointer bg-[#0F050A] rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between text-left w-full h-[270px] sm:h-[350px] ${
+                    className={`category-rose-card group relative cursor-pointer bg-[#0F050A] rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between text-left w-full h-[310px] sm:h-[370px] ${
                       isActive
                         ? 'border-[#E6007E] ring-2 ring-[#E6007E]/40'
                         : 'border-[#E6007E]/20 hover:border-[#E6007E]'
@@ -256,16 +256,16 @@ export const Categories = ({ onOpenQuoteModal }) => {
 
                     {/* 🌸 LUXURY OVERLAY (Revealed ONLY on mouse hover or on phone tap) */}
                     <div
-                      className={`absolute inset-0 w-full h-full p-3.5 sm:p-5 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/85 to-[#0A0A0A]/60 backdrop-blur-md transition-all duration-400 ease-in-out z-20 flex flex-col justify-between ${
+                      className={`absolute inset-0 w-full h-full p-3.5 sm:p-5 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/85 to-[#0A0A0A]/60 backdrop-blur-md transition-all duration-400 ease-in-out z-20 flex flex-col justify-between overflow-hidden ${
                         isActive
                           ? 'opacity-100 pointer-events-auto translate-y-0'
                           : 'opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto translate-y-2 group-hover:translate-y-0'
                       }`}
                     >
                       {/* Top Row: Mandala + Category Tag + Close Button on Mobile */}
-                      <div className="flex items-center justify-between pb-1.5 border-b border-white/15">
+                      <div className="flex items-center justify-between pb-1.5 border-b border-white/15 shrink-0">
                         <div className="flex items-center space-x-1.5">
-                          <FlowerMandala className="w-4 h-4" color="#E6007E" spin={true} />
+                          <FlowerMandala className="w-4 h-4 shrink-0" color="#E6007E" spin={true} />
                           <span className="bg-[#E6007E]/20 text-[#E6007E] text-[8px] sm:text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-[#E6007E]/30">
                             {item.colorBadge}
                           </span>
@@ -291,7 +291,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
                         <h3 className="font-serif font-bold text-xl sm:text-2xl text-white tracking-tight leading-tight">
                           {item.name}
                         </h3>
-                        <p className="text-[11px] sm:text-xs text-[#E6007E] font-sans font-medium">
+                        <p className="text-[11px] sm:text-xs text-[#E6007E] font-sans font-medium truncate">
                           {item.subtitle}
                         </p>
                         <p className="text-[9.5px] sm:text-[10.5px] text-white/80 font-sans line-clamp-2 leading-relaxed pt-0.5">
@@ -305,7 +305,7 @@ export const Categories = ({ onOpenQuoteModal }) => {
                       </div>
 
                       {/* Bottom Footer Action */}
-                      <div className="pt-2 border-t border-white/15 flex items-center justify-between">
+                      <div className="pt-2 border-t border-white/15 flex items-center justify-between shrink-0">
                         <div>
                           <span className="text-xs sm:text-sm font-bold text-white font-serif">{item.vaseLife}</span>
                           <span className="text-[7px] text-white/60 block uppercase tracking-wider font-semibold">Florero</span>
