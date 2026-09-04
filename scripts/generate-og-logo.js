@@ -74,7 +74,7 @@ const svgContent = `
 
   <!-- Subtitle -->
   <text x="600" y="525" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="18" font-weight="500" fill="#D1D5DB">
-    Rosas Ecuatorianas de Exportación al por Mayor • Cayambe - Ecuador
+    Rosas Ecuatorianas con Venta Directa de Cultivo • Cayambe - Ecuador
   </text>
 </svg>
 `;

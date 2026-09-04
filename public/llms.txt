@@ -1,33 +1,33 @@
 # Jossy Roses
 
-> Productor y exportador líder de rosas al por mayor de alta calidad cultivadas en Cayambe, Ecuador. Exportaciones a nivel global para mayoristas, floristerías y diseñadores de eventos.
+> Productor y exportador líder de rosas con venta directa de cultivo de alta calidad cultivadas en Cayambe, Ecuador. Exportaciones a nivel global para floristerías, distribuidores y diseñadores de eventos.
 
 ## Información de la Empresa
 - **Nombre:** Jossy Roses
 - **Ubicación:** Cayambe, Pichincha, Ecuador
 - **Especialidad:** Rosas frescas de exportación de corte premium
-- **Longitudes de tallo disponibles:** 50 cm, 60 cm, 70 cm, 80 cm, 90 cm
+- **Longitudes de tallo disponibles:** 50 cm, 60 cm, 70 cm
 - **Empaque:** Cajas HB (Half Box) y EB (Eighth Box)
 
 ## Enlaces Principales
 - [Inicio](https://jossyroses.web.app/): Página principal de Jossy Roses.
 - [Catálogo de Rosas](https://jossyroses.web.app/#catalog): Catálogo interactivo de 13 variedades reales de exportación.
-- [Solicitar Cotización](https://jossyroses.web.app/solicitar-cotizacion): Formulario directo para cotizaciones mayoristas internacionales.
+- [Solicitar Cotización](https://jossyroses.web.app/solicitar-cotizacion): Formulario directo para cotizaciones con venta directa de cultivo internacionales.
 
 ## Variedades Disponibles
-- **Freedom:** Rosa roja clásica, botón simétrico y textura aterciopelada (50-90 cm).
-- **Explorer:** Rosa roja borgoña oscura de larga duración en florero (50-90 cm).
-- **Mondial:** Rosa blanca marfil nupcial para eventos de gala (50-90 cm).
-- **Playa Blanca:** Rosa blanca pura radiante de gran apertura (50-90 cm).
-- **White O'Hara:** Rosa de jardín aromática blanca francesa (50-90 cm).
-- **Swan:** Rosa blanca pura de porte elegante y minimalista (50-90 cm).
-- **Pink Mondial:** Rosa pastel rubor para bodas y arreglos románticos (50-90 cm).
-- **Pink O'Hara:** Rosa de jardín aromática rosada con perfume intenso (50-90 cm).
-- **Hermosa:** Rosa clásica de tonalidad rosa medio (50-90 cm).
-- **Country Blue:** Rosa exótica de tonalidad lavanda y matices fríos vintage (50-90 cm).
-- **Momentum:** Rosa amarilla brillante con coloración solar pura (50-90 cm).
-- **Radiant:** Rosa amarilla cálida dorada de excelente vida en florero (50-90 cm).
-- **Melon Expression:** Rosa de jardín durazno, salmón y melón rizado (50-90 cm).
+- **Freedom:** Rosa roja clásica, botón simétrico y textura aterciopelada (50-70 cm).
+- **Explorer:** Rosa roja borgoña oscura de larga duración en florero (50-70 cm).
+- **Mondial:** Rosa blanca marfil nupcial para eventos de gala (50-70 cm).
+- **Playa Blanca:** Rosa blanca pura radiante de gran apertura (50-70 cm).
+- **White O'Hara:** Rosa de jardín aromática blanca francesa (50-70 cm).
+- **Swan:** Rosa blanca pura de porte elegante y minimalista (50-70 cm).
+- **Pink Mondial:** Rosa pastel rubor para bodas y arreglos románticos (50-70 cm).
+- **Pink O'Hara:** Rosa de jardín aromática rosada con perfume intenso (50-70 cm).
+- **Hermosa:** Rosa clásica de tonalidad rosa medio (50-70 cm).
+- **Country Blue:** Rosa exótica de tonalidad lavanda y matices fríos vintage (50-70 cm).
+- **Momentum:** Rosa amarilla brillante con coloración solar pura (50-70 cm).
+- **Radiant:** Rosa amarilla cálida dorada de excelente vida en florero (50-70 cm).
+- **Melon Expression:** Rosa de jardín durazno, salmón y melón rizado (50-70 cm).
 
 ## Contacto Comercial
 - **WhatsApp:** [+593 98 084 9061](https://wa.me/593980849061)

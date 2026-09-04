@@ -87,7 +87,7 @@ function HomePage() {
                 WHERE QUALITY COUNTS
               </p>
               <p className="text-gray-400 text-xs leading-relaxed max-w-sm">
-                Productor y exportador de rosas al por mayor para el mercado internacional. Compromiso inquebrantable con la frescura, el calibre de tallo y la duración en florero.
+                Productor y exportador de rosas con venta directa de cultivo para el mercado internacional. Compromiso inquebrantable con la frescura, el calibre de tallo y la duración en florero.
               </p>
             </div>
 
@@ -98,7 +98,7 @@ function HomePage() {
               </h4>
               <ul className="space-y-2 text-xs text-gray-400 font-sans">
                 <li><a href="#catalog" className="hover:text-[#E6007E] transition-colors">Catálogo de Variedades</a></li>
-                <li><a href="#categories" className="hover:text-[#E6007E] transition-colors">Colecciones Mayoristas</a></li>
+                <li><a href="#categories" className="hover:text-[#E6007E] transition-colors">Colecciones de Cultivo</a></li>
                 <li><a href="#about" className="hover:text-[#E6007E] transition-colors">Nuestra Poscosecha</a></li>
                 <li><a href="#mission-vision" className="hover:text-[#E6007E] transition-colors">Misión & Visión</a></li>
                 <li><Link to="/solicitar-cotizacion" className="hover:text-[#E6007E] transition-colors">Solicitar Cotización</Link></li>
@@ -151,7 +151,7 @@ function HomePage() {
           </div>
 
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
-            <p>© {new Date().getFullYear()} Jossy Roses. Todos los derechos reservados. Venta al por Mayor.</p>
+            <p>© {new Date().getFullYear()} Jossy Roses. Todos los derechos reservados. Venta Directa de Cultivo.</p>
             <p className="mt-2 sm:mt-0 font-serif italic text-gray-400">Desarrollado por KinDev S.A.S.</p>
           </div>
 

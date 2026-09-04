@@ -73,7 +73,7 @@ export const TrustBar = () => {
     },
     {
       icon: Truck,
-      title: 'ENTREGA MAYORISTA',
+      title: 'DESPACHO DE CULTIVO',
       description: 'Despachos consolidados a todo el mundo.',
     },
     {

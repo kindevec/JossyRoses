@@ -278,14 +278,14 @@ export const QuotePage = () => {
           <div className="inline-flex items-center space-x-1.5 bg-[#E6007E]/10 border border-[#E6007E]/25 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full mb-1.5">
             <FlowerMandala className="w-3 h-3 sm:w-3.5 sm:h-3.5" color="#E6007E" spin={true} />
             <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#E6007E]">
-              Atención Comercial Mayorista
+              Venta Directa de Cultivo
             </span>
           </div>
           <h1 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#0A0A0A] tracking-tight leading-tight">
             Cotización Directa de Cultivo <span className="italic font-normal text-[#E6007E]">• Cayambe, Ecuador</span>
           </h1>
           <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 max-w-2xl hidden sm:block">
-            Rosas 100% reales de exportación con tallos de 50 a 90 cm. Disponibilidad inmediata.
+            Rosas 100% reales de exportación con tallos de 50 a 70 cm. Disponibilidad inmediata.
           </p>
         </div>
 
@@ -362,7 +362,7 @@ export const QuotePage = () => {
                   {activeRose.color}
                 </p>
                 <p className="text-[10px] text-gray-500 font-sans truncate mt-0.5">
-                  Tallos 50-90cm • Cayambe, Ecuador
+                  Tallos 50-70cm • Cayambe, Ecuador
                 </p>
               </div>
             </div>
@@ -433,7 +433,7 @@ export const QuotePage = () => {
                       Longitudes Disponibles de Exportación:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
-                      {['50 cm', '60 cm', '70 cm', '80 cm', '90 cm'].map((len) => (
+                      {['50 cm', '60 cm', '70 cm'].map((len) => (
                         <span
                           key={len}
                           className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border transition-colors ${
@@ -624,9 +624,7 @@ export const QuotePage = () => {
                           <option value="50 cm">50 cm</option>
                           <option value="60 cm">60 cm</option>
                           <option value="70 cm">70 cm</option>
-                          <option value="80 cm">80 cm</option>
-                          <option value="90 cm">90 cm</option>
-                          <option value="Mezclado">Mezclado (Mix Box 50-90cm)</option>
+                          <option value="Mezclado">Mezclado (Mix Box 50-70cm)</option>
                         </select>
                       </div>
 
@@ -714,7 +712,7 @@ export const QuotePage = () => {
           <div className="flex items-center space-x-3 text-[11px]">
             <Link to="/#catalog" className="hover:text-[#E6007E] transition-colors">Catálogo</Link>
             <span>•</span>
-            <a href="mailto:Sales1.rosesjossy@gmail.com" className="hover:text-[#E6007E] transition-colors">Ventas Mayoristas</a>
+            <a href="mailto:Sales1.rosesjossy@gmail.com" className="hover:text-[#E6007E] transition-colors">Venta Directa de Cultivo</a>
             <span>•</span>
             <span className="font-serif italic text-gray-400">KinDev S.A.S.</span>
           </div>

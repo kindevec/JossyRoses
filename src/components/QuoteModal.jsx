@@ -311,9 +311,7 @@ export const QuoteModal = ({ isOpen, onClose, selectedVariety = '' }) => {
                     <option value="50 cm">50 cm</option>
                     <option value="60 cm">60 cm</option>
                     <option value="70 cm">70 cm</option>
-                    <option value="80 cm">80 cm</option>
-                    <option value="90 cm">90 cm</option>
-                    <option value="Mezclado">Mezclado (Mix 50-90cm)</option>
+                    <option value="Mezclado">Mezclado (Mix 50-70cm)</option>
                   </select>
                 </div>
 

@@ -19,7 +19,6 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
       id: 1,
       type: 'collection',
       image: '/images/banner_card_1.webp',
-      subtitle: 'From $0.45 / stem',
       title: 'NUEVA COLECCIÓN',
       badge: 'Rosas Tinturadas',
       align: 'bottom-right',
@@ -30,8 +29,7 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
       id: 3,
       type: 'collection',
       image: '/images/banner_card_3.webp',
-      subtitle: 'From $0.50 / stem',
-      title: 'NEW COLLECTION',
+      title: 'NUEVA COLECCIÓN',
       badge: 'Garden Roses',
       align: 'bottom-right',
       mobileSpan: 'col-span-8',
@@ -130,9 +128,11 @@ export const NewsletterQuoteBar = ({ onOpenQuoteModal }) => {
 
                   {/* Content Overlay at lower right */}
                   <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 text-right z-10 max-w-[95%]">
-                    <p className="text-[14px] sm:text-xs font-sans text-gray-700 font-medium tracking-wide">
-                      {card.subtitle}
-                    </p>
+                    {card.subtitle && (
+                      <p className="text-[14px] sm:text-xs font-sans text-gray-700 font-medium tracking-wide">
+                        {card.subtitle}
+                      </p>
+                    )}
                     <h4 className="font-serif font-bold text-[17px] sm:text-lg text-[#0A0A0A] tracking-wider leading-tight uppercase mt-0.5">
                       {card.title}
                     </h4>
